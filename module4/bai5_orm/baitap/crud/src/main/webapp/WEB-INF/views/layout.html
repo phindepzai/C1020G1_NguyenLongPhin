@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<div id="div3" class="col-lg-12" th:fragment="golist(list)">
+    <table class="table table-sm table-info table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date Of Birth</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">View</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${list}">
+            <th scope="row" th:text="${employee.getId()}"></th>
+            <td th:text="${employee.getName()}"></td>
+            <td th:text="${employee.getDateOfBirth()}"></td>
+            <td th:text="${employee.getPhone()}"></td>
+            <td th:text="${employee.getAddress()}"></td>
+            <td><a th:href="@{/view/{id}(id=${employee.getId()})}" class="btn btn-primary">View</a></td>
+            <td><a th:href="@{/edit/{id}(id=${employee.getId()})}" class="btn btn-primary">Edit</a></td>
+            <td><a th:data-target="'#target'+${employee.getId()}" data-toggle="modal" class="btn btn-primary">Delete</a>
+                <div class="modal fade" tabindex="-1"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Data can't recovery if deleted
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                </button>
+                                <a href="#" id="delete" class="btn btn-primary">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="div1" th:fragment="form(employee,isCreate)">
+    <form action="#" method="post" th:action="${isCreate} ? @{/create} : @{/update}" th:object="${employee}">
+        <input type="hidden" class="form-control" id="id" th:field="*{id}">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input required type="text" class="form-control" id="name" th:field="*{name}">
+        </div>
+        <div class="form-group">
+            <label for="price">Date Of Birth</label>
+            <input required type="date" class="form-control" id="price" th:field="*{dateOfBirth}">
+        </div>
+        <div class="form-group">
+            <label for="producer">Phone</label>
+            <input required type="text" class="form-control" id="producer" th:field="*{phone}">
+        </div>
+        <div class="form-group">
+            <label for="stock">Address</label>
+            <input required type="text" class="form-control" id="stock" th:field="*{address}">
+        </div>
+        <button type="submit" class="btn btn-primary" th:text="${isCreate} ? Create : Update"></button>
+        <a th:href="@{/}" class="btn btn-primary" role="button">close</a>
+    </form>
+</div>
+<div id="div2" th:fragment="read(employee)">
+    <form action="#" method="post" th:object="${employee}">
+        <div class="form-group">
+            <label for="id2">ID</label>
+            <input readonly type="text" class="form-control" id="id2" th:field="*{id}">
+        </div>
+        <div class="form-group">
+            <label for="name2">Name</label>
+            <input readonly type="text" class="form-control" id="name2" th:field="*{name}">
+        </div>
+        <div class="form-group">
+            <label for="price2">Date Of Birth</label>
+            <input readonly type="date" class="form-control" id="price2" th:field="*{dateOfBirth}">
+        </div>
+        <div class="form-group">
+            <label for="producer2">Phone</label>
+            <input readonly type="text" class="form-control" id="producer2" th:field="*{phone}">
+        </div>
+        <div class="form-group">
+            <label for="stock2">Address</label>
+            <input readonly type="text" class="form-control" id="stock2" th:field="*{address}">
+        </div>
+        <a th:href="@{/}" class="btn btn-primary" role="button">Back to Menu</a>
+    </form>
+</div>
+<div id="div4">
+    <a href="/create" class="btn btn-primary">Add new Employee</a>
+</div>
+<script th:fragment="jquery" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script th:fragment="popperjs" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script th:fragment="boostrapjs" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h3>Bài 10: Viết chương trình tính giá điện.</h3>
+        <button onclick="bai10()">Click me</button>
+        <h3>Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</h3>
+        <button onclick="bai11()">Click me</button>
+        <h3>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và
+            lãi xuất hàng tháng.</h3>
+        <button onclick="bai12()">Click me</button>
+        <script>
+            function bai10() {
+                let giaDien;
+                let soTien;
+                let kWH = prompt("nhập số chữ điện đã dùng của bạn: ");
+                if (kWH <= 50) {
+                    giaDien = 1678;
+                } else if (kWH <= 100) {
+                    giaDien = 1734;
+                } else if (kWH <= 200) {
+                    giaDien = 2014;
+                } else if (kWH <= 300) {
+                    giaDien = 2536;
+                } else if (kWH <= 400) {
+                    giaDien = 2834;
+                } else {
+                    giaDien = 2927;
+                }
+                soTien = giaDien * kWH;
+                alert("số tiền điện tháng này bạn phải là trả: " + soTien);
+            }
+
+            function bai11() {
+                let thuNhap = parseInt(prompt("nhập vào thu nhập cá nhân của bạn(triệu): "));
+                let thue;
+                if (thuNhap <= 5) {
+                    thue = 5;
+                } else if (thuNhap <= 10) {
+                    thue = 10;
+                } else if (thuNhap <= 18) {
+                    thue = 15;
+                } else if (thuNhap <= 32) {
+                    thue = 20;
+                } else if (thuNhap <= 52) {
+                    thue = 25;
+                } else if (thuNhap <= 80) {
+                    thue = 30;
+                } else {
+                    thue = 35;
+                }
+                alert("thuế thu nhập cá nhân của bạn là: " + thue+"%");
+            }
+
+            function bai12() {
+                let tienGui = prompt("nhập số tiền gửi ngân hàng: ");
+                let thang = prompt("nhập số tháng gửi ngân hàng: ");
+                let laiSuat = prompt("nhập lãi suất ngân hàng: ") / 100;
+                let tienSauLai = tienGui * ((1 + laiSuat) ** thang);
+                alert("số tiền bạn nhận được sau khi gửi " + thang + " tháng:" + tienSauLai);
+            }
+        </script>
+    </div>
+</body>
+</html>

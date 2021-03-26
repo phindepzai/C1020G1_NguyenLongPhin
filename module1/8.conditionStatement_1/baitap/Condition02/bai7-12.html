@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h3>Bài 7: Giải phương trình bậc 2.</h3>
+    <button onclick="bai7()">Click me</button>
+    <h3>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi
+        nhỏ 120 và lơn hơn 0.</h3>
+    <button onclick="bai8()">Click me</button>
+    <h3>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của
+        một tam giác là:</h3>
+    <button onclick="bai9()">Click me</button>
+    <script>
+        function bai7() {
+            alert("phương trình bậc 2:ax2 + bx + c = 0");
+            let g = parseInt(prompt("nhập a:"));
+            let t = parseInt(prompt("nhập b:"));
+            let y = parseInt(prompt("nhập c:"));
+            let delta = t * t - 4 * g * y;
+            let x;
+            if (g == 0) {
+                if (t == 0) {
+                    alert("phương trình vô nghiệm");
+                } else {
+                    alert("phương trình có nghiệm là:" + (-y / t));
+                }
+            } else {
+                if (delta > 0) {
+                    x = (-t + delta) / (2 * g);
+                    alert("phương trình có 2 nghiệm phân biệt: ");
+                    alert("x1: " + x);
+                    x = (-t - delta) / (2 * g);
+                    alert("x2: " + x);
+                } else if (delta == 0) {
+                    x = -y / (2 * t);
+                    alert("phương trình có nghiệm kép: ");
+                    alert("x1: " + x);
+                } else {
+                    alert("phương trình vô nghiệm!");
+                }
+            }
+        }
+
+        function bai8() {
+            let tn = parseInt(prompt("nhập vào tuổi: "));
+            if (tn < 120 && tn > 0) {
+                alert("đây là tuổi của người!");
+            } else {
+                alert("đây không phải là tuổi người!");
+            }
+        }
+
+        function bai9() {
+            let u = prompt("nhập vào cạnh a: ");
+            let i = prompt("nhập vào cạnh b: ");
+            let o = prompt("nhập vào cạnh c: ");
+            let p = "đây là 3 cạnh của tam giác!";
+            let l = "đây không phải là 3 cạnh của tam giác!";
+            if (a > 0 && (b > 0 && c > 0)) {
+                if (a + b > c) {
+                    if (a + c > b) {
+                        if (b + c > a) {
+                            alert(p);
+                        } else {
+                            alert(l);
+                        }
+                    } else {
+                        alert(l);
+                    }
+                } else {
+                    alert(l);
+                }
+            }
+        }
+
+
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let count = 0;
+    let amount = parseInt(prompt("nhập số lượng phần tử trong mảng: "));
+    for (let i = 0; i < amount; i++) {
+        arr[i] = parseInt(prompt("nhập vào phần tử thứ "+i+" :"));
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if (isNaN(arr[i])){
+            count++;
+        }
+    }
+    alert("có "+count+" kí tự không phải là số!");
+</script>
+</body>
+</html>

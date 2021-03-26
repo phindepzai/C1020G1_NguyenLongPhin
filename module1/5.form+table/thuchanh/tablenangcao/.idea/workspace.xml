@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8695227-eba3-47bd-8ba1-7264b4ef196b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/formlaysurvey/.idea/formlaysurvey.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/formlaysurvey/BinCss.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/formlaysurvey/SurveyForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/taoformbasic/BinCss.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/taoformdangky/.idea/taoformdangky.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/taoformdangky/RegisterForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../formsearchgg/.idea/formsearchgg.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../formsearchgg/GoogleSearchForm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/tablenangcao.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myCss.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tabledif.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../taotablebasic/.idea/taotablebasic.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../taotablebasic/myCss.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../taotablebasic/tablesimple.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../baitap/5.form+table/taoformbasic/formbasic.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../baitap/5.form+table/taoformbasic/formbasic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../taoformbasic/simpleform.html" beforeDir="false" afterPath="$PROJECT_DIR$/../taoformbasic/simpleform.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="1jj31kUzhqZnL7P6nen1HKP4d2m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../baitap/5.form+table/table/tablesimple" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8695227-eba3-47bd-8ba1-7264b4ef196b" name="Default Changelist" comment="" />
+      <created>1604303460446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604303460446</updated>
+      <workItem from="1604303461695" duration="621000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="171" key="FileChooserDialogImpl" timestamp="1604304086285">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="171" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604304086285" />
+  </component>
+</project>

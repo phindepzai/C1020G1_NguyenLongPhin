@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="choose()">
+<script>
+    let r = parseInt(prompt("nhập vào bán kính (m): "));
+    let result;
+    function choose() {
+        let choose = parseInt(prompt("1.để tính diện tích!" +
+                                     "\n2.để tính chu vi!"));
+        switch (choose) {
+            case 1:
+                getArea();
+                break;
+            case 2:
+                getPerimeter();
+                break;
+        }
+    }
+
+    function getPerimeter() {
+        result = 2*Math.PI*r;
+        alert("chu vi hình chữ nhật : "+result+" m");
+    }
+
+    function getArea() {
+        result = Math.PI*r*r;
+        alert("diện tích hình chữ nhật : "+result+" m2");
+    }
+</script>
+</body>
+</html>

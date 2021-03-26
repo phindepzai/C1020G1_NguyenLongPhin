@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Market Research Survey</title>
+    <link rel="stylesheet" href="BinCss.css" type="text/css">
+</head>
+<body>
+ <form>
+     <header>
+         <h2 id="hat2">Market Research Survey</h2>
+         <div id="div1">Please take a few moments to complete this satisfaction survey.</div>
+     </header>
+     <ul>
+         <li>
+             <label name="age" >What is your age range?
+             <div class="divbot">
+                 <select id="select1">
+                     <option value="18-24">18-24</option>
+                     <option value="25-34">25-34</option>
+                     <option value="35-50">35-50</option>
+                     <option value="50+">50+</option>
+                 </select>
+             </div>
+             </label>
+         </li>
+         <li>
+             <label>What is your yearly income range?
+             <div class="divbot">
+                 <select id="select2">
+                     <<option value="$0-$25000">$0-$25000</option>
+                     <option value="$25001-$50000">$25001-$50000</option>
+                     <option value="$50001-$100000">$50001-$100000</option>
+                     <option value="$100001+">$100001+</option>
+                 </select>
+             </div>
+             </label>
+         </li>
+         <li>
+             <label>Gender Identity<br>
+             <div id="div2">
+                 <label><input class="cham" type="radio" name="gender">Male</label><br>
+                 <label><input class="cham" type="radio" name="gender">Female</label><br>
+                 <label><input class="cham" type="radio" name="gender">Nonbinary</label><br>
+                 <label><input class="cham" type="radio" name="gender">Other<br>
+                     <input id="inputOther" name="other_other" type="text"><br>
+                 </label><br>
+             </div>
+             </label>
+         </li>
+         <li>
+             <label>Which of the following products have your purchased in the last 2 months. Please check all that apply.
+             <div>
+                 <label><input class="cham" type="checkbox" name="product" value="Product 1">Product 1</label><br>
+                 <label><input class="cham" type="checkbox" name="product" value="Product 2">Product 2</label><br>
+                 <label><input class="cham" type="checkbox" name="product" value="Product 3">Product 3</label><br>
+             </div>
+             </label>
+         </li>
+         <li>
+             <label>How often would you use our new product?
+             <div>
+                 <label><input class="cham" type="radio" name="use_time" value="Daily"s>Daily</label><br>
+                 <label><input class="cham" type="radio" name="use_time" value="weekly">Weekly</label><br>
+                 <label><input class="cham" type="radio" name="use_time" value="Monthly">Monthly</label><br>
+             </div>
+             </label>
+         </li>
+         <li>
+             <label>What would you pay for the new product?
+             <div>
+                 <label>$<input name="dollar" id="dollar" type="number" >.<input name="cent" id="cent" type="number"></label><br>
+                 <label class="marginleft10">dollar</label>
+                 <label class="marginleft10">cent</label>
+             </div>
+             </label>
+         </li>
+         <li>
+             <label>What features would you like to see in the new product.<br>
+                <label><textarea>press...</textarea></label>
+             </label>
+         </li>
+     </ul>
+ </form>
+</body>
+</html>

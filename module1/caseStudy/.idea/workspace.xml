@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b43f95b7-e686-4436-87c0-d97979c9df97" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/annotation/StartDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/ContractRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/StartDateValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/static/image/bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com.furama/logs/mylog.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com.furama/logs/mylog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/ContractDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/ContractDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/CustomerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/CustomerRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/EmployeeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/EmployeeRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/ServicesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/controller/ServicesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/contract/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/contract/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/contract/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/contract/ContractDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/employee/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/employee/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/employee/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/employee/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/House.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/House.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/Services.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/Villa.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/entity/services/Villa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/contract/ContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/contract/ContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/UserRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/repository/employee/UserRoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/contracts/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/contracts/ContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/contracts/impl/ContractServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/contracts/impl/ContractServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/impl/EmployeePropertyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/impl/EmployeePropertyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/service/employees/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/ulti/Check.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/ulti/Check.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/CustomerCodeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/CustomerCodeValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/EmailExistEmployeeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/EmailExistEmployeeValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/EmailExistValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/EmailExistValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/IdCardExistValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/java/com/furama/validator/IdCardExistValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/detailsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/detailsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/detailsView.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/detailsView.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/listActive.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/listActive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/saveDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/saveDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/contracts/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/customers/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/customers/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/customers/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/customers/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/customers/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/customers/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/employees/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/employees/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/employees/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/employees/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/employees/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/employees/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/login/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/services/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/services/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/services/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/services/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/services/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/casestudy/src/main/resources/templates/services/view.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1jolD6hK2urOuvgyytVis2SEPxW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/test/BinzetProject" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.a.html">
+    <configuration name="a.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/caseStudy/Css/a.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="myHtml.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:52959/yeuCau1/myHtml.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="vd.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/caseStudy/vd.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="myJs.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/myJs.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.a.html" />
+        <item itemvalue="JavaScript Debug.vd.html" />
+        <item itemvalue="JavaScript Debug.myHtml.html" />
+        <item itemvalue="Node.js.myJs.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b43f95b7-e686-4436-87c0-d97979c9df97" name="Default Changelist" comment="" />
+      <created>1604478202237</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604478202237</updated>
+      <workItem from="1604478203913" duration="3899000" />
+      <workItem from="1604538290705" duration="35000" />
+      <workItem from="1604546175404" duration="6262000" />
+      <workItem from="1604558273121" duration="1077000" />
+      <workItem from="1604644983035" duration="1854000" />
+      <workItem from="1604896274965" duration="4853000" />
+      <workItem from="1604907222728" duration="14000" />
+      <workItem from="1604978459641" duration="413000" />
+      <workItem from="1606100733470" duration="352000" />
+      <workItem from="1606102577558" duration="1883000" />
+      <workItem from="1606796837536" duration="454000" />
+      <workItem from="1610970631674" duration="103000" />
+      <workItem from="1615731649347" duration="654000" />
+      <workItem from="1615772319409" duration="2880000" />
+      <workItem from="1616137112486" duration="15000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1616137125636">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616137125635" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1610970674627">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1610970674627" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Css/a.html</url>
+          <line>58</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

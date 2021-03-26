@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/save" th:object="${customer}">
+    <label for="id" th:text="#{message.id}"></label>
+    <input type="text" id="id" th:field="*{id}">
+    <label for="name" th:text="#{message.name}"></label>
+    <input type="text" id="name" th:field="*{name}">
+    <label for="country" th:text="#{message.country}"></label>
+    <input type="text" id="country" th:field="*{country}">
+    <input type="submit" th:value="#{message.submit}">
+</form>
+</body>
+</html>

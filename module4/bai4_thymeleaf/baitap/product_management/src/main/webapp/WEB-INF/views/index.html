@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: head}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{/layout :: #div3(${list})}"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3" th:insert="~{/layout :: #div4}"></div>
+    </div>
+</div>
+<script th:replace="/layout :: jquery"></script>
+<script th:replace="/layout :: popperjs"></script>
+<script th:replace="/layout :: boostrapjs"></script>
+</body>
+</html>

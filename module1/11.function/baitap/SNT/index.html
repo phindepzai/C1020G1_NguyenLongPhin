@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 1; j <= arr[i]; j++) {
+                if (arr[i] % j == 0){
+                    count++;
+                }
+            }
+            if (count == 2){
+                alert(arr[i]+" là số nguyên tố");
+            }else {
+                alert(arr[i]+" không phải là số nguyên tố");
+            }
+            count = 0;
+        }
+    }
+    let amount = parseInt(prompt("nhập vào số lượng muốn kiểm tra:"));
+    let arr = [];
+    for (let i = 0; i < amount; i++) {
+        arr[i]= parseInt(prompt("nhập vào số thứ "+(i+1)));
+    }
+    isPrime(arr);
+</script>
+</body>
+</html>

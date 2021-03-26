@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Rat {
+        constructor(name, weight, speed) {
+            this.status = true;
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+        say(str) {
+            alert(this.name + " kêu: " + str);
+        }
+        getSpeed() {
+            return this.speed;
+        }
+        isStatus() {
+            return this.status;
+        }
+        setStatus(status) {
+            this.status = status;
+        }
+        setWeight(weight){
+            this.weight = weight;
+        }
+        getWeight() {
+            return this.weight;
+        }
+        getName() {
+            return this.name;
+        }
+    }
+    class Cat {
+        constructor(name, weight, speedMax) {
+            this.name = name;
+            this.weight = weight;
+            this.speedMax = speedMax;
+        }
+        say(str){
+            alert(this.name+str);
+        }
+        chaseRat(rat) {
+            if(rat.getSpeed() < this.speedMax) {
+                this.say(": mèo méo meo mèo meo.");
+                return true;
+            }
+            return false;
+        }
+        eatRat(rat) {
+            if(!rat.isStatus()) {
+                alert("Die");
+            } else {
+                if(this.chaseRat(rat)) {
+                    alert("Đã bắt được chú: "+rat.getName())
+                    this.weight += rat.getWeight();
+                    rat.setWeight(0);
+                    rat.setStatus(false);
+                }
+            }
+        }
+    }
+    function main() {
+       let arrRat = [];
+       arrRat.push(new Rat("Jerry1",1,40));
+       arrRat.push(new Rat("Jerry2",1.5,30));
+       arrRat.push(new Rat("Jerry3",0.5,50));
+       let Bo = new Cat("Bo",5,35);
+       for(let i =0; i<arrRat.length;i++) {
+           Bo.eatRat(arrRat[i]);
+       }
+    }
+    main();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="getCount(char,arr)">
+<script>
+    let str = "suprise mother fk!";
+    let arr = [];
+    for (let i = 0; i < str.length; i++) {
+        arr[i] = str.charAt(i);
+    }
+    let char = prompt("nhập vào kí tự bất kì: ");
+    function getCount(c,a) {
+        let count = 0;
+        for (let i = 0; i < a.length; i++) {
+            if (c === a[i]){
+                count++;
+            }
+        }
+        alert("kí tự \""+c+"\" xuất hiện "+count+" lần");
+    }
+</script>
+</body>
+</html>

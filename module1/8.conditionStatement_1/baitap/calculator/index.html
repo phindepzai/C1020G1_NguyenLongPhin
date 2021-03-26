@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="myCss.css">
+</head>
+<body>
+    <form>
+        <fieldset>
+            <input type="text" name="space" id="text1"><br>
+            <input class="button" type="button" value="1" onclick="chuyenText(1)">
+            <input class="button" type="button" value="2" onclick="chuyenText(2)">
+            <input class="button" type="button" value="3" onclick="chuyenText(3)">
+            <input class="button" type="button" value="+" onclick="layDau('+')"><br>
+            <input class="button" type="button" value="4" onclick="chuyenText(4)">
+            <input class="button" type="button" value="5" onclick="chuyenText(5)">
+            <input class="button" type="button" value="6" onclick="chuyenText(6)">
+            <input class="button" type="button" value="-" onclick="layDau('-')"><br>
+            <input class="button" type="button" value="7" onclick="chuyenText(7)">
+            <input class="button" type="button" value="8" onclick="chuyenText(8)">
+            <input class="button" type="button" value="9" onclick="chuyenText(9)">
+            <input class="button" type="button" value="x" onclick="layDau('*')"><br>
+            <input class="button" type="reset" value="C" id="reset" onclick="reset()">
+            <input class="button" type="button" value="0" onclick="chuyenText(0)">
+            <input class="button" type="button" value="=" onclick="getResult()">
+            <input class="button" type="button" value="/" onclick="layDau('/')"><br>
+        </fieldset>
+    </form>
+</body>
+</html>
+<script>
+    let num1;
+    let num2;
+    let dau;
+    let result = 0;
+    let text = document.getElementById("text1");
+    function getResult() {
+        text.value = result;
+    }
+    function layDau(phep) {
+        dau = phep;
+    }
+    function chuyenText(num) {
+        if (dau == undefined){
+            num1 = num;
+        }else {
+            num2 = num;
+            phepTinh(dau);
+            dau = undefined;
+        }
+         text.value = num;
+    }
+    function phepTinh() {
+        switch (dau) {
+            case '+':
+                result = parseInt(num1) + parseInt(num2);
+                num1 = result;
+                num2 = undefined;
+                break;
+            case '-':
+                result = num1 - num2;
+                num1 = result;
+                num2 = undefined;
+                break;
+            case '*':
+                result = num1 * num2;
+                num1 = result;
+                num2 = undefined;
+                break;
+            case '/':
+                result = num1 / num2;
+                num1 = result;
+                num2 = undefined;
+                break;
+        }
+    }
+</script>

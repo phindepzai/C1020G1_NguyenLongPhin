@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <meta charset="UTF-8">
+    <title>List Services</title>
+</head>
+
+<body>
+<div th:replace="~{login/layout :: header('services')}">
+</div>
+<div class="container-fluid" style="padding:0">
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('services')}">
+        </div>
+        <div class="col-lg-10">
+            <div id="list">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Quantity Max</th>
+                        <th scope="col">Services Type</th>
+                        <th scope="col">Rent Type</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="services : ${list}">
+                        <td th:text="${services.id}"></td>
+                        <td th:text="${services.name}"></td>
+                        <td th:text="${services.area}"></td>
+                        <td th:text="${services.cost}"></td>
+                        <td th:text="${services.quantityMax}"></td>
+                        <td th:text="${services.servicesType.name}"></td>
+                        <td th:text="${services.rentType.name}"></td>
+                        <td><a th:href="@{/services/view/{id}(id=${services.id})}" class="view" title="View"
+                               data-toggle="tooltip"><i
+                                class="material-icons">&#xE417;</i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<nav aria-label="..." class="float-right mr-5">
+    <input type="hidden" id="page" value="1">
+    <ul class="pagination">
+        <li class='page-item disabled' id="previous">
+            <a class='page-link' href='#' tabindex='-1'>Previous</a>
+        </li>
+        <li class='page-item active' id="first"><a id="firstA" class='page-link' href='#'>1</a></li>
+        <li th:if="${list.totalPages > 1}" class='page-item' id="second"><a id="secondA" class='page-link'
+                                                                            href='#'>2</a></li>
+        <li th:if="${list.totalPages <= 1}" class='page-item disabled' id="second"><a id="secondA"
+                                                                                      class='page-link'
+                                                                                      href='#'>2</a></li>
+        <li th:if="${list.totalPages < 3}" class='page-item disabled' id="third"><a id="thirdA"
+                                                                                    class='page-link'
+                                                                                    href='#'>3</a></li>
+        <li th:if="${list.totalPages >= 3}" class='page-item' id="third"><a id="thirdA" class='page-link'
+                                                                            href='#'>3</a></li>
+        <li th:if="${list.totalPages == 1}" class='page-item disabled' id="next">
+            <a class='page-link' href='#'>Next</a>
+        </li>
+        <li th:if="${list.totalPages > 1}" class='page-item' id="next">
+            <a class='page-link' href='#'>Next</a>
+        </li>
+    </ul>
+</nav>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#key').on("keyup", function () {
+            let type = $('#type').val();
+            let key = $('#key').val();
+            console.log(key + type);
+            if (key == null) {
+                key = "";
+            }
+            $.ajax({
+                url: "/services/" + type.toLowerCase() + "s/search?key=" + key,
+                type: "GET",
+                success: function (data) {
+                    // console.log(data);
+                    let content = data.content;
+                    let table = "<table class='table table-hover'><thead><tr><th scope='col'>ID</th><th scope='col'>Name</th><th scope='col'>Area</th><th scope='col'>Cost</th><th scope='col'>Quantity Max</th><th scope='col'>Services Type</th><th scope='col'>Rent Type</th><th scope='col'>Action</th></tr></thead><tbody>";
+                    for (let i = 0; i < content.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + content[i].id + "</td>";
+                        table += "<td>" + content[i].name + "</td>";
+                        table += "<td>" + content[i].area + "</td>";
+                        table += "<td>" + content[i].cost + "</td>";
+                        table += "<td>" + content[i].quantityMax + "</td>";
+                        table += "<td>" + content[i].servicesType.name + "</td>";
+                        table += "<td>" + content[i].rentType.name + "</td>";
+                        table += "<td><a href='/services/view/" + content[i].id + "'><i class='material-icons'>&#xE417;</i></a></td>";
+                        table += "</tr>";
+                    }
+                    table += "</tbody></table>";
+                    $('#list').html(table);
+                    $('#key').val(key);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+            event.preventDefault();
+        });
+    });
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            let type = $('#type').val();
+            let key = $('#key').val();
+            let page = $(this).html();
+            if (page == 'Previous') {
+                page = $('#page').val() * 1 - 1;
+            } else if (page == 'Next') {
+                page = $('#page').val() * 1 + 1;
+            }
+            if (key == null) {
+                key = "";
+            }
+            let url = "/services/" + type.toLowerCase() + "s/search?key=" + key + "&page=" + page;
+            console.log(url);
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (data) {
+                    let content = data.content;
+                    console.log(content);
+                    let table = "<table class='table table-hover'><thead><tr><th scope='col'>ID</th><th scope='col'>Name</th><th scope='col'>Area</th><th scope='col'>Cost</th><th scope='col'>Quantity Max</th><th scope='col'>Services Type</th><th scope='col'>Rent Type</th><th scope='col'>Action</th></tr></thead><tbody>";
+                    for (let i = 0; i < content.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + content[i].id + "</td>";
+                        table += "<td>" + content[i].name + "</td>";
+                        table += "<td>" + content[i].area + "</td>";
+                        table += "<td>" + content[i].cost + "</td>";
+                        table += "<td>" + content[i].quantityMax + "</td>";
+                        table += "<td>" + content[i].servicesType.name + "</td>";
+                        table += "<td>" + content[i].rentType.name + "</td>";
+                        table += "<td><a href='/services/view/" + content[i].id + "'><i class='material-icons'>&#xE417;</i></a></td>";
+                        table += "</tr>";
+                    }
+                    table += "</tbody></table>";
+                    if (data.totalPages < 2) {
+                        document.getElementById("previous").className = "page-item disabled";
+                        document.getElementById("first").className = "page-item active";
+                        document.getElementById("second").className = "page-item disabled";
+                        document.getElementById("third").className = "page-item disabled";
+                        document.getElementById("next").className = "page-item disabled";
+                        $('#firstA').html("1");
+                        $('#secondA').html("2");
+                        $('#thirdA').html("3");
+                    } else if (data.totalPages == 2) {
+                        document.getElementById("third").className = "page-item disabled";
+                        if (page < 2){
+                            document.getElementById("previous").className = "page-item disabled";
+                            document.getElementById("first").className = "page-item active";
+                            document.getElementById("second").className = "page-item";
+                            document.getElementById("next").className = "page-item";
+                            $('#firstA').html("1");
+                            $('#secondA').html("2");
+                            $('#thirdA').html("3");
+                        } else {
+                            document.getElementById("previous").className = "page-item";
+                            document.getElementById("first").className = "page-item";
+                            document.getElementById("second").className = "page-item active";
+                            document.getElementById("next").className = "page-item disabled";
+                            $('#firstA').html("1");
+                            $('#secondA').html("2");
+                            $('#thirdA').html("3");
+                        }
+                    } else {
+                        if (page < 2){
+                            document.getElementById("previous").className = "page-item disabled";
+                            document.getElementById("first").className = "page-item active";
+                            document.getElementById("second").className = "page-item";
+                            document.getElementById("third").className = "page-item";
+                            document.getElementById("next").className = "page-item";
+                            $('#firstA').html("1");
+                            $('#secondA').html("2");
+                            $('#thirdA').html("3");
+                        } else if (page == data.totalPages){
+                            document.getElementById("previous").className = "page-item";
+                            document.getElementById("first").className = "page-item";
+                            document.getElementById("second").className = "page-item";
+                            document.getElementById("third").className = "page-item active";
+                            document.getElementById("next").className = "page-item disabled";
+                            $('#firstA').html(page - 2);
+                            $('#secondA').html(page - 1);
+                            $('#thirdA').html(page);
+                        } else {
+                            document.getElementById("previous").className = "page-item";
+                            document.getElementById("first").className = "page-item";
+                            document.getElementById("second").className = "page-item active";
+                            document.getElementById("third").className = "page-item";
+                            document.getElementById("next").className = "page-item";
+                            $('#firstA').html(page - 1);
+                            $('#secondA').html(page);
+                            $('#thirdA').html(page * 1 + 1);
+                        }
+                    }
+                    $('#list').html(table);
+                    $('#key').val(key);
+                    $('#page').val(page);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+            event.preventDefault();
+        });
+    });
+    $(document).ready(function () {
+        $('.services').click(function (event) {
+            let type = $(this).text();
+            $.ajax({
+                url: "/services/" + type.toLowerCase() + "s/search",
+                type: "GET",
+                success: function (data) {
+                    let content = data.content;
+                    let table = "<table class='table table-hover'><thead><th scope='col'>ID</th><th scope='col'>Name</th><th scope='col'>Area</th><th scope='col'>Cost</th><th scope='col'>Quantity Max</th><th scope='col'>Services Type</th><th scope='col'>Rent Type</th><th scope='col'>Action</th></></thead><tbody>";
+                    for (let i = 0; i < content.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + content[i].id + "</td>";
+                        table += "<td>" + content[i].name + "</td>";
+                        table += "<td>" + content[i].area + "</td>";
+                        table += "<td>" + content[i].cost + "</td>";
+                        table += "<td>" + content[i].quantityMax + "</td>";
+                        table += "<td>" + content[i].servicesType.name + "</td>";
+                        table += "<td>" + content[i].rentType.name + "</td>";
+                        table += "<td><a href='/services/view/" + content[i].id + "'><i class='material-icons'>&#xE417;</i></a></td>";
+                        table += "</tr>";
+                    }
+                    table += "</tbody></table>";
+                    $('#type').val(type);
+                    $('#list').html(table);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+</body>
+</html>

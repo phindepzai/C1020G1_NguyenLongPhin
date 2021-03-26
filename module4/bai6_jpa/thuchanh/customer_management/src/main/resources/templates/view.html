@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: head('View Customer')}">
+</head>
+<body>
+<div th:replace="~{/layout :: #div2(${customer})}"></div>
+<script th:replace="~{/layout :: jquery}"></script>
+<script th:replace="~{/layout :: popperjs}"></script>
+<script th:replace="~{/layout :: boostrapjs}"></script>
+</body>
+</html>

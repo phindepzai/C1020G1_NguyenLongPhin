@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div1" onclick="showInfo()">1. Show Information Customer.</div>
+<div id="div2" onclick="editInfo()">2. Edit Information Customer.</div>
+<div onclick="showMoneyAfterDiscount()">3. Show the amount to be paid after discount</div>
+</body>
+</html>
+<script>
+    let bon = "&emsp;";
+    let hai = "&ensp;";
+    let mot = "&nbsp;";
+    let name = "Nguyễn Long Phin";
+    let indentityNumber = "201812049";
+    let dateOfBirth = "2001-12-12";
+    let email = "phindeptroai@gmail.com";
+    let address = "Đà Nẵng";
+    let customerType = "Gold";
+    let amount = 3;
+    let rentDays = 3;
+    let serviceType = "House";
+    let rentalType = "Business";
+    let price;
+    let sumDis;
+    function edit() {
+        let form = document.getElementById("formEdit");
+        name = form.namef.value;
+        indentityNumber = form.identityNumberf.value;
+        email = form.emailf.value;
+        dateOfBirth = form.dateOfBirthf.value;
+        address = form.addressf.value;
+        customerType = form.customerTypef.value;
+        amount = form.amountf.value;
+        rentDays = form.rentDaysf.value;
+        serviceType = form.serviceType.value;
+        rentalType = form.rentalTypef.value;
+        form.innerHTML = "";
+        showInfo();
+    }
+
+    function showInfo() {
+        tinhDiscount();
+        document.write("<table border='1px' style='width:500px;height:200px;font-size:30px'>");
+        document.write("<tr>");
+        document.write("<td>Họ và Tên: </td>");
+        document.write("<td>" + name + "</td>");
+        document.write("<tr>");
+        document.write("<tr>");
+        document.write("<td>Số CMND: </td>");
+        document.write("<td>" + indentityNumber + "</td>");
+        document.write("<tr>");
+        document.write("<tr>");
+        document.write("<td>Ngày sinh: </td>");
+        document.write("<td>" + dateOfBirth + "</td>");
+        document.write("<tr>");
+        document.write("<tr>");
+        document.write("<td>Email: </td>");
+        document.write("<td>" + email + "</td>");
+        document.write("<tr>");
+        document.write("<tr>");
+        document.write("<td>Địa chỉ: </td>");
+        document.write("<td>" + address + "</td>");
+        document.write("<tr>");
+        document.write("<tr>");
+        document.write("<td>Loại customer: </td>");
+        document.write("<td>" + customerType + "</td>");
+        document.write("<tr>");
+        document.write("<tr>");
+        document.write("<td>discount:</td>");
+        document.write("<td>" + sumDis + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>số tiền bạn phải trả là: </td>");
+        document.write("<td>" + price + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>Số lượng đi kèm: </td>");
+        document.write("<td>" + amount + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>Số ngày thuê: </td>");
+        document.write("<td>" + rentDays + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>Loại dịch vụ: </td>");
+        document.write("<td>" + serviceType + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>Loại phòng thuê: </td>");
+        document.write("<td>" + rentalType + "$" + "</td>");
+        document.write("</table>");
+    }
+
+    function editInfo() {
+        document.write("<form id='formEdit'>");
+        document.write("<label>Họ Tên: <input id='fullName' type='text' style='margin-left: 58px' name='namef'></label><br>");
+        document.write("<label>Số CMND: <input id='identityNumber' type='number' style='margin-left: 38px' name='identityNumberf'></label><br>");
+        document.write("<label>Ngày sinh: <input id='dob' type='date' style='margin-left: 42px' name='dateOfBirthf'></label><br>");
+        document.write("<label>Email: <input id='email' type='email' style='margin-left: 68px' name='emailf'></label><br>");
+        document.write("<label>Địa chỉ: <input id='address' type='email' style='margin-left: 60px' name='addressf'></label><br>");
+        document.write("" +
+            "<label>Loại khách hàng:\n" +
+            "                <select id='type' name='customerTypef'>\n" +
+            "                    <option>chọn</option>\n" +
+            "                    <option>Diamond</option>\n" +
+            "                    <option>Platinum</option>\n" +
+            "                    <option>Gold</option>\n" +
+            "                    <option>Silver</option>\n" +
+            "                    <option>Member</option>\n" +
+            "                </select>\n" +
+            "            </label><br>");
+        document.write("<label>Số lượng đi kèm: <input id='amount' type='number' name='amountf'></label><br>");
+        document.write("<label>Số ngày thuê: <input id='rentDays' type='number' style='margin-left: 23px' name='rentDaysf'></label><br>");
+        document.write("" +
+            "<label>Loại dịch vụ: \n" +
+            "                <select id='serviceType' style='margin-left: 25px' name='serviceTypef'>\n" +
+            "                    <option>Villa</option>\n" +
+            "                    <option>House</option>\n" +
+            "                    <option>Room</option>\n" +
+            "                </select>\n" +
+            "            </label><br>");
+        document.write("" +
+            "<label>Loại phòng thuê:\n" +
+            "                <select id='rentalType' name='rentalTypef'>\n" +
+            "                    <option>Vip</option>\n" +
+            "                    <option>Business</option>\n" +
+            "                    <option>Normal</option>\n" +
+            "                </select>\n" +
+            "            </label><br>");
+        document.write("" +
+            "<label>\n" +
+            "                <input class='last' id='submit' style='margin-left: 30px;margin-top:10px' type='button' onclick='edit()' value='Xác nhận'>\n" +
+            "                <input class='last' id='reset' style='margin-left: 20px' type='reset' value='Nhập lại'>\n" +
+            "            </label>");
+        document.write("</form>");
+        document.getElementById("fullName").value = name;
+        document.getElementById("identityNumber").value = indentityNumber;
+        document.getElementById("dob").value = dateOfBirth;
+        document.getElementById("email").value = email;
+        document.getElementById("address").value = address;
+        document.getElementById("type").value = customerType;
+        document.getElementById("amount").value = amount;
+        document.getElementById("rentDays").value = rentDays;
+        document.getElementById("serviceType").value = serviceType;
+        document.getElementById("rentalType").value = rentalType;
+    }
+
+    function tinhDiscount() {
+        let disOfAdd;
+        let disOfDay;
+        let disOfCus;
+        let servicePrice;
+        switch (address) {
+            case "Đà Nẵng":
+                disOfAdd = 20;
+                break;
+            case "Huế":
+                disOfAdd = 10;
+                break;
+            case "Quảng Nam":
+                disOfAdd = 5;
+                break;
+        }
+        if (rentDays > 7) {
+            disOfDay = 30;
+        } else if (rentDays >= 5) {
+            disOfDay = 20;
+        } else if (rentDays >= 2) {
+            disOfDay = 10;
+        } else {
+            disOfDay = 0;
+        }
+        switch (customerType) {
+            case "Diamond":
+                disOfCus = 15;
+                break
+            case "Platinum":
+                disOfCus = 10;
+                break;
+            case "Gold":
+                disOfCus = 5;
+                break;
+            case "Silver":
+                disOfCus = 2;
+                break;
+            case "Member":
+                disOfCus = 0;
+                break;
+        }
+        sumDis = disOfCus + disOfDay + disOfAdd;
+        switch (serviceType) {
+            case "Villa":
+                servicePrice = 500;
+                break;
+            case "House":
+                servicePrice = 300;
+                break;
+            case "Room":
+                servicePrice = 100;
+                break;
+        }
+        price = servicePrice * rentDays - sumDis;
+    }
+    function showMoneyAfterDiscount() {
+        tinhDiscount();
+        document.write("<table border='1px' style='width:500px;height:200px;font-size:30px'>");
+        document.write("<tr>");
+        document.write("<td>số tiền trước khi giảm giá: </td>");
+        document.write("<td>" + (price + sumDis) + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>discount:</td>");
+        document.write("<td>" + sumDis + "$" + "</td>");
+        document.write("<tr>");
+        document.write("<td>số tiền bạn phải trả là: </td>");
+        document.write("<td>" + price + "$" + "</td>");
+        document.write("</table>");
+    }
+</script>

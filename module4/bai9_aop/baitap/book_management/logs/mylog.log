@@ -1,0 +1,60 @@
+2021-03-22 17:08:19.945  INFO 14476 --- [restartedMain] com.binzet.BookManagementApplication     : Starting BookManagementApplication using Java 1.8.0_251 on Binzet with PID 14476 (E:\C1020G1_NguyenLongPhin\module4\bai9_aop\baitap\book_management\target\classes started by ASUS in E:\C1020G1_NguyenLongPhin\module4\bai9_aop\baitap\book_management)
+2021-03-22 17:08:19.961  INFO 14476 --- [restartedMain] com.binzet.BookManagementApplication     : No active profile set, falling back to default profiles: default
+2021-03-22 17:08:20.037  INFO 14476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-22 17:08:20.038  INFO 14476 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-22 17:08:20.748  INFO 14476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-22 17:08:20.799  INFO 14476 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 2 JPA repository interfaces.
+2021-03-22 17:08:21.349  INFO 14476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 1212 (http)
+2021-03-22 17:08:21.357  INFO 14476 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-22 17:08:21.357  INFO 14476 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-22 17:08:21.439  INFO 14476 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-22 17:08:21.439  INFO 14476 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1400 ms
+2021-03-22 17:08:21.656  INFO 14476 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-22 17:08:21.697  INFO 14476 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-22 17:08:21.816  INFO 14476 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-22 17:08:21.892  INFO 14476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-22 17:08:22.240  INFO 14476 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-22 17:08:22.261  INFO 14476 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-03-22 17:08:22.924  INFO 14476 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-22 17:08:22.931  INFO 14476 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-22 17:08:22.973  INFO 14476 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-03-22 17:08:23.290  WARN 14476 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-22 17:08:23.443  INFO 14476 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-22 17:08:23.511  INFO 14476 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-03-22 17:08:23.733  INFO 14476 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 1212 (http) with context path ''
+2021-03-22 17:08:23.744  INFO 14476 --- [restartedMain] com.binzet.BookManagementApplication     : Started BookManagementApplication in 4.245 seconds (JVM running for 4.917)
+2021-03-22 17:08:36.821  INFO 14476 --- [http-nio-1212-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-22 17:08:36.821  INFO 14476 --- [http-nio-1212-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-22 17:08:36.823  INFO 14476 --- [http-nio-1212-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-03-22 17:08:40.060  INFO 14476 --- [http-nio-1212-exec-2] com.binzet.controller.BookingController  : Rent book phin
+2021-03-22 17:08:49.137  INFO 14476 --- [http-nio-1212-exec-5] com.binzet.controller.BookingController  : Give back phin
+2021-03-22 17:10:19.103  INFO 17300 --- [restartedMain] com.binzet.BookManagementApplication     : Starting BookManagementApplication using Java 1.8.0_251 on Binzet with PID 17300 (E:\C1020G1_NguyenLongPhin\module4\bai9_aop\baitap\book_management\target\classes started by ASUS in E:\C1020G1_NguyenLongPhin\module4\bai9_aop\baitap\book_management)
+2021-03-22 17:10:19.105  INFO 17300 --- [restartedMain] com.binzet.BookManagementApplication     : No active profile set, falling back to default profiles: default
+2021-03-22 17:10:19.162  INFO 17300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-03-22 17:10:19.163  INFO 17300 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-03-22 17:10:19.744  INFO 17300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-03-22 17:10:19.790  INFO 17300 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2021-03-22 17:10:20.283  INFO 17300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 1212 (http)
+2021-03-22 17:10:20.289  INFO 17300 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-03-22 17:10:20.289  INFO 17300 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-03-22 17:10:20.365  INFO 17300 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-03-22 17:10:20.366  INFO 17300 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1202 ms
+2021-03-22 17:10:20.589  INFO 17300 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-03-22 17:10:20.617  INFO 17300 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-03-22 17:10:20.685  INFO 17300 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-03-22 17:10:20.744  INFO 17300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-03-22 17:10:21.035  INFO 17300 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-03-22 17:10:21.049  INFO 17300 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-03-22 17:10:21.565  INFO 17300 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-03-22 17:10:21.571  INFO 17300 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-03-22 17:10:21.615  INFO 17300 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-03-22 17:10:21.904  WARN 17300 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-03-22 17:10:22.052  INFO 17300 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-03-22 17:10:22.117  INFO 17300 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-03-22 17:10:22.325  INFO 17300 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 1212 (http) with context path ''
+2021-03-22 17:10:22.334  INFO 17300 --- [restartedMain] com.binzet.BookManagementApplication     : Started BookManagementApplication in 3.609 seconds (JVM running for 4.18)
+2021-03-22 17:10:35.387  INFO 17300 --- [http-nio-1212-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-03-22 17:10:35.387  INFO 17300 --- [http-nio-1212-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-03-22 17:10:35.388  INFO 17300 --- [http-nio-1212-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-03-22 17:10:38.138  INFO 17300 --- [http-nio-1212-exec-4] com.binzet.controller.BookingController  : Rent book phin
+2021-03-22 17:10:46.531  INFO 17300 --- [http-nio-1212-exec-2] com.binzet.controller.BookingController  : Give back phin

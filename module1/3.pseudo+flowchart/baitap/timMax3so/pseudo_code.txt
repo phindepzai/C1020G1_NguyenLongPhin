@@ -1,0 +1,13 @@
+Begin
+ nhập a,b,c
+ IF (a > b) 
+    IF (a > c) 
+	Max = a
+ else
+    IF (b > c)
+        Max = b
+    else 
+	Max = c
+ Display Max
+End
+    

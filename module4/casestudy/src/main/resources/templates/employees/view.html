@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <title>View Employees</title>
+</head>
+<body>
+<div class="container-fluid">
+    <header th:replace="~{login/layout :: hitdo}">
+    </header>
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('customer')}"></div>
+        <div class="col-lg-10">
+            <div th:object="${employee}">
+                <h2>View Customer</h2>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input readonly type="text" class="form-control" th:field="*{email}" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfBirth">Date Of Birth</label>
+                    <input readonly type="date" class="form-control" th:field="*{dateOfBirth}" id="dateOfBirth">
+                </div>
+                <div class="form-group">
+                    <label for="idCard">ID Card</label>
+                    <input readonly type="text" class="form-control" th:field="*{idCard}" id="idCard">
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input readonly type="text" class="form-control" th:field="*{salary}" id="salary">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input readonly type="text" class="form-control" th:field="*{phone}" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input readonly type="text" class="form-control" th:field="*{address}"
+                           id="address">
+                </div>
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <input readonly type="text" class="form-control" th:field="${employee.position.name}"
+                           id="position">
+                </div>
+                <div class="form-group">
+                    <label for="educationDegree">Education degree</label>
+                    <input readonly type="text" class="form-control" th:field="${employee.educationDegree.name}"
+                           id="educationDegree">
+                </div>
+                <div class="form-group">
+                    <label for="division">Division</label>
+                    <input readonly type="text" class="form-control" th:field="${employee.division.name}"
+                           id="division">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+</body>
+</html>

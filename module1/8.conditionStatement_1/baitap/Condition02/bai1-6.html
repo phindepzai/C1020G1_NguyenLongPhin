@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h3>Bài 1: Chuyển từ độ C sang độ F.</h3>
+    <button onclick="bai1()">Click me</button>
+    <h3>Bài 2: Chuyển từ mét sang feet.</h3>
+    <button onclick="bai2()">Click me</button>
+    <h3>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h3>
+    <button onclick="bai3()">Click me</button>
+    <h3>Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.</h3>
+    <button onclick="bai4()">Click me</button>
+    <h3>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h3>
+    <button onclick="bai5()">Click me</button>
+    <h3>Bài 6: Giải phương trình bậc 1.</h3>
+    <button onclick="bai6()">Click me</button>
+    <script>
+        function bai1() {
+            let doC = parseInt(prompt("nhập vào độ C: "));
+            let doF = doC * 9 / 5 + 32;
+            alert("độ F: " + doF);
+        }
+        function bai2() {
+            let met = parseInt(prompt("nhập vào số met: "));
+            let feet = met * 3.2808;
+        }
+
+        function bai3() {
+            let canhA = parseInt(prompt("nhập vào cạnh a: "));
+            let dienTich = canhA * canhA;
+            alert("diện tích của hình vuông: " + canhA);
+        }
+
+        function bai4() {
+            let a = parseInt(prompt("nhập vào cạnh a: "));
+            let b = parseInt(prompt("nhập vào cạnh b: "));
+            let s = a * b;
+            alert("diện tích hình chữ nhật là: " + s);
+        }
+
+        function bai5() {
+            let q = parseInt(prompt("nhập vào cạnh a: "));
+            let w = parseInt(prompt("nhập vào cạnh b: "));
+            let S = q * w / 2;
+            alert("diện tích tam giác vuông: " + S);
+        }
+
+        function bai6() {
+            alert("phương trình bậc 1:ax + b = 0")
+            let e = parseInt(prompt("nhập a:"));
+            let r = parseInt(prompt("nhập b:"));
+            if (a == 0) {
+                alert("phương trình vô nghiệm");
+            } else {
+                alert("nghiệm của phương trình là : " + x);
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

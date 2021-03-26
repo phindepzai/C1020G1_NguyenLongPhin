@@ -1,0 +1,39 @@
+form{
+    margin: 50px 400px;
+}
+.indam{
+    font-size: 15px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+#label1{
+    margin-left: 50px;
+}
+#label2{
+    margin-left: 100px;
+}
+#label3{
+    margin-left: 80px;
+}
+#amount{
+    margin-left: 10px;
+    width: 150px;
+}
+#from{
+    margin-left: 30px;
+    width: 120px;
+}
+#to{
+    margin-left: 60px;
+    width: 120px;
+}
+#button{
+    margin-left: 20px;
+    width: 100px;
+    background-color: #5022d6;
+    font-size: 15px;
+    color: white;
+}
+#result{
+    color: #4640d6;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(c) {
+            if (c < -273){
+                alert("ERROR!");
+            }else {
+                this.c = c;
+            }
+        }
+        toF(){
+            return this.c * 9/5 + 32;
+        }
+        toK(){
+            return this.c + 273.15;
+        }
+    }
+    let temp = new Temperature(20);
+    alert(temp.toF());
+    alert(temp.toK());
+</script>
+</body>
+</html>

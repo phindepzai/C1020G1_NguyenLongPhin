@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h3>bài 1:</h3>
+        <button onclick="bai1()">click vào để xem</button>;
+    </div>
+    <div>
+        <h3>bài 2:</h3>
+        <button onclick="bai2()">click vào để xem</button>;
+    </div>
+</body>
+</html>
+<script>
+    function bai1() {
+        let a = parseInt(prompt("a: "));
+        let b = parseInt(prompt("b: "));
+        let result = (a + b < 4) ? 'Below' : 'Over';
+        alert(result);
+    }
+    function bai2() {
+        let login = prompt("nhap vao:")
+        let message = (login == 'Employee') ?
+            'Hello' :
+            (login == 'Director') ?
+                'Greetings' :
+                (login == '') ?
+                    'No login' :
+                    '';
+        alert(message)
+    }
+</script>

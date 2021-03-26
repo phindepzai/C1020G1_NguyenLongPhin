@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <meta charset="UTF-8">
+    <title>List ContractsDetails</title>
+</head>
+
+<body>
+<div th:replace="~{login/layout :: header('details')}">
+</div>
+<div class="container-fluid" style="padding:0">
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('detailss')}">
+        </div>
+        <div class="col-lg-10">
+            <div id="list">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">ID Contract</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Attach Service ID</th>
+                        <th scope="col">Attach Service Name</th>
+                        <th scope="col">Attach Service Cost</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Money</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="details : ${list}">
+                        <td th:text="${details.id}"></td>
+                        <td th:text="${details.contract.id}"></td>
+                        <td th:text="${details.contract.startDate}"></td>
+                        <td th:text="${details.contract.endDate}"></td>
+                        <td th:text="${details.attachService.id}"></td>
+                        <td th:text="${details.attachService.name}"></td>
+                        <td th:text="${details.attachService.cost}"></td>
+                        <td th:text="${details.quantity}"></td>
+                        <td th:text="${details.quantity * details.attachService.cost}"></td>
+                        <td><a th:href="@{/details/view/detail/{id}(id=${details.id})}" class="text-success" title="View"
+                               data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                        </td>
+                    </tr>
+                    <div th:if="${contract != null}">
+                        <tr>
+                            <th colspan="2">ID Services</th>
+                            <th colspan="2">Name Services</th>
+                            <th colspan="2">Cost Services</th>
+                            <th colspan="2">Day Use Services</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" th:text="${services.id}"></td>
+                            <td colspan="2" th:text="*{services.name}"></td>
+                            <td colspan="2" th:text="*{services.cost}"></td>
+                            <td colspan="2" th:text="${day}"></td>
+                            <td th:text="${services.cost * day * services.rentType.cost}"></td>
+                            <td><a th:href="@{/services/view/{id}(id=${services.id})}" class="text-success" title="View Services"
+                                   data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8">Total Money of Contracts</td>
+                            <td th:text="${contract.totalMoney}"></td>
+                            <td><a th:href="@{/contracts/view/{id}(id=${contract.id})}" class="text-success" title="View Services"
+                                   data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                            </td>
+                        </tr>
+                    </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#key').on("keyup", function () {
+            let type = $('#type').val();
+            let key = $('#key').val();
+            if (key == null) {
+                key = "";
+            }
+            $.ajax({
+                url: "/" + type.toLowerCase() + "s/search?key=" + key,
+                type: "GET",
+                success: function (data) {
+                    let content = data.content;
+                    let table = "<table class='table table-hover'><thead><tr><th scope='col'>ID</th><th scope='col'>Start Date</th><th scope='col'>End Date</th><th scope='col'>Deposit</th><th scope='col'>Total Money</th><th scope='col'>Employee</th><th scope='col'>Customer</th><th scope='col'>Services</th><th scope='col'>Action</th></tr></thead><tbody>";
+                    for (let i = 0; i < content.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + content[i].id + "</td>";
+                        table += "<td>" + content[i].startDate + "</td>";
+                        table += "<td>" + content[i].endDate + "</td>";
+                        table += "<td>" + content[i].deposit + "</td>";
+                        table += "<td>" + content[i].totalMoney + "</td>";
+                        table += "<td>" + content[i].employee.name + "</td>";
+                        table += "<td>" + content[i].customer.name + "</td>";
+                        table += "<td>" + content[i].services.name + "</td>";
+                        table += "<td><a href='/detailss/view/" + content[i].id + "' class='text-success' title='View' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        table += "<a href='/detailss/edit/" + content[i].id + "' class='text-primary' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a></td>";
+                        table += "</tr>";
+                    }
+                    table += "</tbody></table>";
+                    $('#list').html(table);
+                    $('#key').val(key);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+            event.preventDefault();
+        });
+    });
+</script>
+</body>
+</html>

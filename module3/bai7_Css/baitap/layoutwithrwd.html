@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*="col-"] {
+            float: left;
+        }
+
+        #menu {
+            height: 30px;
+            padding: 0;
+            margin: 0;
+            background-color: rgb(73, 53, 53);
+            border: 1px solid #CDCDCD;
+        }
+
+        #menu ul,
+        #menu li {
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu li {
+            position: relative;
+            float: left;
+            list-style: none;
+        }
+
+        a {
+            width: 100px;
+            height: 30px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            background-color: rgb(73, 53, 53);
+            color: white;
+        }
+
+        a:hover {
+            background-color: black;
+        }
+
+        #menu ul ul {
+            position: absolute;
+            top: 30px;
+            visibility: hidden;
+        }
+
+        #menu ul li:hover ul {
+            visibility: visible;
+        }
+
+        #footer div {
+            padding: 0px;
+            height: 30px;
+            background-color:  rgb(73, 53, 53);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <div class="col-10">
+            <ul>
+                <li><a href="#">Home</a>
+                    <ul>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a>
+                    <ul>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Projects</a>
+                    <ul>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a>
+                    <ul>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                        <li><a href="#">link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-2" id="login">
+            <a href="#">Login</a>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="col-2">
+            <h1></h1>
+        </div>
+
+        <div class="col-8">
+            <h1>Wellcome</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magma aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris...........................................................................................................
+                ......................................................................................
+            </p>
+            <h2>Test</h2>
+            <p>Lorem ipsum...</p>
+        </div>
+
+        <div class="col-2">
+            <div style="border: 1;"><img src="~~~" alt=""></div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="col-12">
+            footer text
+        </div>
+    </div>
+</body>
+
+</html>

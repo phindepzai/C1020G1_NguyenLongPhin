@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function minArray(arr) {
+        if(arr.length == 0)
+            return -1;
+        let min = arr[0];
+
+        for(let i = 1; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    let arr = [];
+    arr[0] = [3, 5, 1, 8, -3, 7, 8];
+    arr[1] = [7, 12, 6, 9, 20, 56, 89];
+    arr[2] = [];
+    arr[3] = [0, 0, 0, 0, 0, 0];
+    for (let i = 0; i < 4; i++) {
+        let min = minArray(arr[i]);
+        if (min == -1){
+            alert("đây là mảng rỗng!");
+        }else {
+            alert(min);
+        }
+    }
+</script>
+</body>
+</html>

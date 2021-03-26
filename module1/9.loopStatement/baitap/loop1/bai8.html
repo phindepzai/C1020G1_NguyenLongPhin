@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="doanXem()"></button>
+<script>
+    function doanXem() {
+        let numBeg = 0;
+        let numEnd = 0;
+        alert("Mời nhập 2 số đầu và cuối trong khoảng: ")
+        do {
+             numBeg = parseInt(prompt("Đầu: "));
+             numEnd = parseInt(prompt("Cuối: "));
+        }while (numBeg >= numEnd);
+        let numRan = parseInt(randomNumber(numBeg,numEnd));
+        let numDiv;
+        console.log(numRan);
+        do {
+             numDiv = parseInt(prompt("nhập số đoán ở đây(q để kết thúc): "));
+            if (numDiv == numRan){
+                alert("chúc mừng bạn đã đoán đúng!");
+                break;
+            }else {
+                alert("bạn đã đoán sai,thử lại lần nữa?");
+            }
+        }while (numDiv != "q");
+    }
+    function randomNumber(a, b) {
+        return Math.random() * (b - a) + a;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="alert('giai thừa của '+num+' = '+getFactorial(num))">
+<script>
+    let num;
+    do {
+        num = parseInt(prompt("nhập vào số nguyên bất kì lớn hơn hoặc bằng 0 : "));
+        if (num < 0){
+            alert("số bạn vừa nhập nhỏ hơn 0!");
+        }
+    }while (num < 0);
+    function getFactorial(num){
+        if (num == 0){
+            return 1;
+        }else {
+            return num * getFactorial(num-1);
+        }
+    }
+</script>
+</body>
+</html>

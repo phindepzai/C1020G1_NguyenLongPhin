@@ -1,0 +1,15 @@
+table{
+    width: 600px;
+    text-align: left;
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+#inp1{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+#amountCustomer{
+    color: #e64337;
+}

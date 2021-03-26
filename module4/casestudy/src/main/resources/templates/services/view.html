@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <title>View Services</title>
+</head>
+<body>
+<div class="container-fluid">
+    <header th:replace="~{login/layout :: hitdo}">
+    </header>
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('services')}"></div>
+        <div class="col-lg-10">
+            <div th:object="${services}">
+                <h2>View Services</h2>
+                <div class="form-group">
+                    <label for="name">ID</label>
+                    <input readonly type="text" class="form-control" th:field="*{id}" id="id" placeholder="id...">
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input readonly type="text" class="form-control" th:field="*{name}" id="name" placeholder="name...">
+                </div>
+                <div class="form-group">
+                    <label for="area">Area</label>
+                    <input readonly type="text" class="form-control" th:field="*{area}" id="area"
+                           placeholder="area...">
+                </div>
+                <div class="form-group">
+                    <label for="cost">Cost</label>
+                    <input readonly type="text" class="form-control" th:field="*{cost}" id="cost" placeholder="cost...">
+                </div>
+                <div class="form-group">
+                    <label for="quantityMax">Quantity Max</label>
+                    <input readonly type="text" class="form-control" th:field="*{quantityMax}" id="quantityMax"
+                           placeholder="Quantity Max...">
+                </div>
+                <div class="form-group">
+                    <label for="quantityMax">Services Type</label>
+                    <input readonly type="text" class="form-control" th:value="${services.servicesType.name}" id="quantityMax"
+                           placeholder="Quantity Max...">
+                </div>
+                <div class="form-group">
+                    <label for="quantityMax">Rent Type</label>
+                    <input readonly type="text" class="form-control" th:value="${services.rentType.name}" id="quantityMax"
+                           placeholder="Quantity Max...">
+                </div>
+                <div th:if="${services.servicesType.id != 3}">
+                    <div class="form-group">
+                        <label for="standard">Standard</label>
+                        <input readonly type="text" class="form-control" th:field="*{standard}" id="standard"
+                               placeholder="Standard...">
+                    </div>
+                    <div class="form-group">
+                        <label for="convenientDescription">Convenient Description</label>
+                        <input readonly type="text" class="form-control" th:field="*{convenientDescription}"
+                               id="convenientDescription"
+                               placeholder="ConvenientDescription...">
+                    </div>
+                    <div class="form-group">
+                        <label for="numOfFloor">Num Of Floor</label>
+                        <input readonly type="text" class="form-control" th:field="*{numOfFloor}" id="numOfFloor"
+                               placeholder="Num Of Floor...">
+                    </div>
+                </div>
+                <div th:if="${services.servicesType.id == 1}">
+                    <div class="form-group">
+                        <label for="areaPool">Area Pool</label>
+                        <input readonly type="text" class="form-control" th:field="*{areaPool}" id="areaPool"
+                               placeholder="Area Pool...">
+                    </div>
+                </div>
+                <div th:if="${services.servicesType.id == 3}">
+                    <div class="form-group">
+                        <label for="attachServiceFreeID">Free Attach Services</label>
+                        <input readonly type="text" class="form-control" th:field="*{attachServiceFreeID}"
+                               id="attachServiceFreeID"
+                               placeholder="Attach Service Free ID...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+</body>
+</html>

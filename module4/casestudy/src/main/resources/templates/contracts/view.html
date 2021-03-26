@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <title>View Contracts</title>
+</head>
+<body>
+<div class="container-fluid">
+    <header th:replace="~{login/layout :: hitdo}">
+    </header>
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('contracts')}"></div>
+        <div class="col-lg-10">
+            <div th:object="${contract}">
+                <h2>View contract</h2>
+                <input readonly type="hidden" class="form-control" th:field="*{id}" id="id">
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input readonly type="date" class="form-control" th:field="*{startDate}" id="startDate">
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input readonly type="date" class="form-control" th:field="*{endDate}" id="endDate">
+                </div>
+                <div class="form-group">
+                    <label for="deposit">Deposit</label>
+                    <input readonly type="text" class="form-control" th:field="*{deposit}" id="deposit">
+                </div>
+                <div class="form-group">
+                    <label for="totalMoney">Total Money</label>
+                    <input readonly type="text" class="form-control" th:field="*{totalMoney}" id="totalMoney">
+                </div>
+                <div class="form-group">
+                    <label for="employee">Employee</label>
+                    <input readonly type="text" class="form-control" th:value="*{employee.name}" id="employee">
+                </div>
+                <div class="form-group">
+                    <label for="customer">Customer</label>
+                    <input readonly type="text" class="form-control" th:value="*{customer.name}" id="customer">
+                </div>
+                <div class="form-group">
+                    <label for="services">Services</label>
+                    <input readonly type="text" class="form-control" th:value="*{services.name}" id="services">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+</body>
+</html>

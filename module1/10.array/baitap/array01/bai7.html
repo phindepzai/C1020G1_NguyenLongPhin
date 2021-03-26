@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let ind;
+    for (let i = 0; i < 10; i++) {
+        arr[i] = parseInt(prompt("nhập vào phần tử thứ: "+i));
+    }
+    let V = parseInt(prompt("nhập vào số nguyên V: "));
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == V){
+            ind = i;
+        }
+    }
+    for (let i = ind; i < arr.length; i++) {
+        if (i == arr.length - 1){
+            arr[i] = 0;
+        }else {
+            arr[i] = arr[i+1];
+        }
+    }
+    alert(arr.toString());
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="swap()">
+<script>
+    let num1 = parseInt(prompt("nhập số nguyên thứ nhất : "));
+    let num2 = parseInt(prompt("nhập số nguyên thứ hai : "));
+    function swap() {
+        let temp = num1;
+        num1 = num2;
+        num2 = temp;
+        alert("số nguyên thứ nhất là: "+num1);
+        alert("số nguyên thứ hai là: "+num2);
+    }
+</script>
+</body>
+</html>

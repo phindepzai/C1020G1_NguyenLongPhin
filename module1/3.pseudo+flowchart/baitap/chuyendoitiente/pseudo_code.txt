@@ -1,0 +1,6 @@
+Begin
+ nhập vào số dollar muốn chuyển đổi D
+ VND = D * 23000
+ Display "số tiền: "
+ Display VND
+end

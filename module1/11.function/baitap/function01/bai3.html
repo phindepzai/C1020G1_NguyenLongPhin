@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="getInput()">
+</body>
+<script>
+    function getInput() {
+        let a = parseInt(prompt("nhập vào số thứ nhất."));
+        let b = parseInt(prompt("nhập vào số thứ hai."));
+        alert(getNum1OrSum(a, b));
+    }
+
+    function getNum1OrSum(num1, num2) {
+        if (num1 > num2) {
+            return "Số thứ nhất lớn hơn số thứ 2!";
+        } else {
+            return "tổng của 2 số là: "+(num1 + num2);
+        }
+    }
+</script>
+</html>

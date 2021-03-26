@@ -1,0 +1,36 @@
+.cham{
+    margin-right: 10px;margin-bottom: 10px;margin-top: 10px;
+}
+#hat2{
+    margin-top: 10px;margin-bottom:10px;font-size:20px;
+}
+#div1{
+    font-size: 95%;
+}
+.divbot{
+    padding-bottom: 10px;
+}
+ul{
+    list-style-type: none;padding-left: 0px;font-size: 115%;
+}
+#select1{
+    padding-right: 300px;
+}
+#select2{
+    padding-right: 233px;
+}
+#div2{
+    margin-top: 10px;
+}
+#inputOther{
+    margin-left: 30px;
+}
+#dollar{
+    width: 40px;
+}
+#cent{
+    width: 30px;
+}
+.marginleft10{
+    margin-left: 10px;
+}

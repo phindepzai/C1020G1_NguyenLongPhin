@@ -1,0 +1,27 @@
+p {
+    margin: 10px;
+}
+h1 {
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+hr {
+    margin: 0px;
+}
+
+.blue {
+    color :blue;
+}
+
+.aqua {
+    color: aqua;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+#bachkhoa {
+    margin-top: 0px;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h3>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h3>
+        <button onclick="bai1()">Click me</button>
+    </div>
+    <div>
+        <h3>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h3>
+        <button onclick="bai2()">Click me</button>
+    </div>
+    <div>
+        <h3>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ
+            hơn 0</h3>
+        <button onclick="bai3()">Click me</button>
+    </div>
+    <div>
+        <h3>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h3>
+        <button onclick="bai4()">Click me</button>
+    </div>
+    <div>
+        <h3>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</h3>
+        <button onclick="bai5()">Click me</button>
+    </div>
+    <div>
+        <h3>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</h3>
+        <button onclick="bai6()">Click me</button>
+    </div>
+    <div>
+        <h3>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</h3>
+        <button onclick="bai7()">Click me</button>
+    </div>
+    <script>
+        function bai1() {
+            let a = prompt("nhập a: ");
+            let b = prompt("nhập b: ");
+            if (a % b == 0){
+                alert("a chia hết cho b!")
+            }else {
+                alert("a không chia hết cho b!")
+            }
+        }
+        function bai2() {
+            let tuoi = prompt("nhập tuổi: ");
+            if (tuoi < 15){
+                alert("không đủ tuổi vào lớp 10!");
+            }else {
+                alert("đã đủ tuổi vào lớp 10!")
+            }
+        }
+        function bai3() {
+            let z = prompt("nhập số nguyên: ");
+            if (z > 0){
+                alert(z + " lớn hơn 0");
+            }else if (z < 0){
+                alert(z + " nhỏ hơn 0");
+            }else {
+                alert(z + " là số 0!")
+            }
+        }
+        function bai4() {
+            let q = prompt("nhập số thứ 1:");
+            let w = prompt("nhập số thứ 2:");
+            let e = prompt("nhập số thứ 3:");
+            let max = 0;
+            if (q > w){
+                if (q > e){
+                    max = q;
+                }else {
+                    max = e;
+                }
+            }else {
+                if (w > e){
+                    max = w;
+                }else {
+                    max = e;
+                }
+            }
+            alert("max là: "+max);
+        }
+        function bai5() {
+            let diemKTra = parseInt(prompt("nhập điểm kiểm tra: "));
+            let diemGiuaKi = parseInt(prompt("nhập điểm thi giữa kì: "));
+            let diemCuoiKi = parseInt(prompt("nhập điểm thi cuối kì: "));
+            let hocLuc;
+            let diemTB = (diemKTra + diemGiuaKi * 2 + diemCuoiKi * 3)/6;
+            if (diemTB >= 8){
+                hocLuc = "gioi";
+            }else if (diemTB >= 6.5){
+                hocLuc = "khá";
+            }else if (diemTB >= 5){
+                hocLuc = "trung bình";
+            }else {
+                hocLuc = "yếu"
+            }
+            alert("bạn xếp loại "+hocLuc);
+        }
+        function bai6() {
+            let doanhThu = prompt("nhập doanh thu tháng này: ");
+            let tienNhan;
+            let hoaHong;
+            if (doanhThu > 200000){
+                hoaHong = 15;
+            }else if (doanhThu > 100000){
+                hoaHong = 10;
+            }else {
+                hoaHong = 5;
+            }
+            tienNhan = (doanhThu * hoaHong)/100;
+            alert("tiền nhận về là: "+tienNhan);
+        }
+        function bai7() {
+            let minute = prompt("nhập số phút mà gia đình bạn đã gọi: ");
+            let tienCuoc;
+            let mPM;
+            if (minute > 1000){
+                mPM = 300;
+            }else if (minute > 500){
+                mPM = 200;
+            }else {
+                mPM = 100;
+            }
+            tienCuoc = mPM * minute;
+            alert("số tiền cước mà gia định bạn phải trả: "+tienCuoc);
+        }
+    </script>
+</body>
+</html>

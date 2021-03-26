@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="main()">
+    <video id="vd" style="margin-left:400px" width="600px" height="450px" controls>
+    </video><br>
+    <img id="img" style="margin-left:750px;margin-top:200px" width="20px" height="50px" onclick="menu()">
+<script>
+    let vdID = document.getElementById("vd");
+    let imgID = document.getElementById("img");
+    class Television{
+        constructor(channel,volume,status){
+            this.channel = channel;
+            this.volume = volume;
+            this.status = status;
+        }
+        getVideo(){
+            switch(this.channel){
+                case 1:
+                    vdID.src = "video/colam.mp4";
+                    break;
+                case 2:
+                    vdID.src = "video/ngu.mp4";
+                    break;
+            }
+        }
+        setChannel(channel){
+            if (!this.status){
+                alert("tv chưa bật vui lòng bật tv rồi mới thao tác!");
+            }else{
+                this.channel = channel;
+                alert("đã chuyển qua kênh "+this.channel);
+                this.getVideo();
+            }
+        }
+        setVolume(upOrDown){
+            if (!this.status){
+                alert("tv chưa bật vui lòng bật tv rồi mới thao tác!");
+            }else{
+                if(upOrDown === "up"){
+                    this.volume++;
+                }else{
+                    this.volume--;
+                }
+            }
+            
+        }
+        
+        turn(){
+            if (this.status){
+                vdID.src = "";
+                this.status = false;
+                alert("đã tắt tv!");
+            }else{
+                this.getVideo();
+                this.status = true;
+            }
+        }
+    }
+    class Remote{
+        constructor(id){
+            this.id = id;
+            imgID.src = "image/remote.png";
+        }
+        swapChannel(channel,tv){
+            tv.setChannel(channel);
+        }
+        changeVolume(upOrDown){
+            tv.setVolume(upOrDown);
+        }
+        turnTv(tv){
+            tv.turn();
+        }
+    }
+    let remote = new Remote(111);
+    let tv = new Television(1,10,false);
+    function main(){
+        let con = confirm("bạn muốn bật tv lên không ?");
+        if(con){
+            remote.turnTv(tv);
+        }
+    }
+    function menu(){
+        let choose = parseInt(prompt("nhập vào lựa chọn của bạn: \n1.Tắt tv\n2.Chuyển kênh"));
+        switch (choose){
+            case 1:
+                remote.turnTv(tv);
+                break;
+            case 2:
+                let channel = parseInt(prompt("nhập vào kênh bạn muốn chuyển (chỉ có 2 kênh 1 và 2 =]]):"));
+                remote.swapChannel(channel,tv);
+                break;
+        }
+    }
+</script>    
+</body>
+</html>

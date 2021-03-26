@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{/index :: select('view/'+${customer.id})}"></div>
+<h2 th:text="#{message.info}"></h2>
+<table>
+    <thead>
+        <tr>
+            <th th:text="#{message.id}"></th>
+            <th th:text="#{message.name}"></th>
+            <th th:text="#{message.country}"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.country}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

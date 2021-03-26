@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="myCss.css">
+</head>
+<body>
+<h2>Add New Product</h2>
+<div id="div1">
+    <form name="form">
+        <input id="inp1" type="text" name="productName">
+        <input type="button" class='button' value="Add" onclick="add()">
+    </form>
+</div>
+<h2>Display All Product</h2>
+<table id="table" border="1px">
+</table>
+<script>
+    let arr = [];
+    let ind;
+    let temp = "";
+    let result = document.getElementById("table");
+
+    function add() {
+        let productName = document.form.productName.value;
+        arr.push(productName);
+        show();
+    }
+
+    function edit(i) {
+        let nameChange = prompt("mời bạn nhập vào tên muốn thay đổi: ");
+        arr.splice(i, 1, nameChange);
+        show();
+    }
+
+    function deleted(i) {
+        arr.splice(i, 1);
+        show();
+    }
+
+    function show() {
+        temp += "<tr><th colspan='5'>Product Name</th>";
+        temp += "<th id='amountProduct'>"+arr.length+" Product </th></tr>";
+        for (let i = 0; i < arr.length; i++) {
+            ind = i;
+            temp += "<form><tr><td colspan='4'>" + arr[i] + "</td>";
+            temp += "<td><input class='button' type='button' value='edit' onclick='edit(ind)'></td>";
+            temp += "<td><input class='button' type='button' value='delete' onclick='deleted(ind)'></td></form>";
+            temp += "<td></td>";
+        }
+        result.innerHTML = temp;
+        temp = "";
+    }
+</script>
+</body>
+</html>

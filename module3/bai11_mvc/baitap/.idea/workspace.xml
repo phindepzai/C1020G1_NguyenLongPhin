@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7cd62e6f-f19e-405d-89a9-be1f4ac5d5ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../thuchanh/src/bean/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/src/controller/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/src/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/src/repository/impl/CustomerRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/src/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/src/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/web/create_customer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thuchanh/web/update_customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai8_boostrap/baitap/a.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai8_boostrap/baitap/a.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1nbLJMPxBhvNqZcFx02pETm7DTr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7cd62e6f-f19e-405d-89a9-be1f4ac5d5ea" name="Default Changelist" comment="" />
+      <created>1611653770833</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611653770833</updated>
+      <workItem from="1611653772035" duration="609000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

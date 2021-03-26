@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+    <link rel="stylesheet" type="text/css" href="Css/yc5Css.css">
+</head>
+<body onload="displayMainMenu()">
+    <p id="result"></p>
+    <button onclick="displayMainMenu()">menu</button>
+<script>
+    let result = document.getElementById("result");
+    let regexEmail = /^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
+    let regexCMND = /^[\d]{9}$/;
+    let regexPhoneNumber = /^[\d]{10}$/;
+    let regexName = /^[a-zA-Z ]+$/;
+    let arrCustomer = [];
+    let count = 0;
+
+    function removeAscent (str) {
+        if (str === null || str === undefined) return str;
+        str = str.toLowerCase();
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+        str = str.replace(/đ/g, "d");
+        return str;
+    }
+    function checkBirth(dateOfBirth) {
+        let regex =/^((0[1-9])|([1-2][0-9])|(3[0-1]))\/(([0][1-9])|1[0-2])\/(19[0-9]{2}|20[0-1][0-9]|2020)$/;
+        return regex.test(dateOfBirth);
+    }
+    function check(str){
+        switch (str){
+            case "name":
+                let name = "";
+                do {
+                    name = prompt("Enter Name: ");
+                    if (regexName.test(removeAscent(name))){
+                        break
+                    }else alert("Name was invalid!");
+                }while (1);
+                return name;
+            case "identity":
+                let identity;
+                do {
+                    identity = prompt("Enter ID number : ");
+                    if (regexCMND.test(identity)){
+                        break;
+                    } else alert("ID was invalid!\nID must have 9 number!");
+                }while (1);
+                return identity;
+            case "dateOfBirth":
+                let dateOfBirth;
+                do {
+                    dateOfBirth = prompt("Enter date of birth : DD/MM/YYYY");
+                    if (checkBirth(dateOfBirth)) {
+                        break;
+                    }else alert("Date of birth was invalid!");
+                } while (1);
+                return dateOfBirth;
+            case "email":
+                let email;
+                do {
+                    email = prompt("Enter email : ");
+                    if (regexEmail.test(email)) {
+                        break;
+                    }else alert("Email was invalid!");
+                } while (1);
+                return email;
+            case "address":
+                let address = prompt("Enter address (city) :");
+                return address;
+            case "typeCustomer":
+                let typeCustomer;
+                do{
+                    typeCustomer = prompt("Enter CustomerType :\nDiamond, Platinum, Gold, Silver, Member");
+                    let temp = typeCustomer.toLocaleLowerCase();
+                    if (temp === "diamond" || temp === "Platinum" || temp === "Gold" || temp === "Silver" || temp === "Member"){
+                        break;
+                    }else alert("Customer type was invalid\n ex: Diamond");
+                }while (1);
+                return typeCustomer;
+            case "disCount":
+                let disCount;
+                do {
+                    disCount = prompt("Enter discount:\nfrom 0 to 100 (%)");
+                    if (!isNaN(disCount) && disCount >= 0 && disCount <= 100 && disCount !== ""){
+                        break;
+                    }else alert("Discount was Invalid!");
+                }while (1);
+                return disCount;
+            case "quantityIncluded":
+                let quantityIncluded = 0;
+                do {
+                    quantityIncluded = Number(prompt("Enter QuantityIncluded :"));
+                    if (Number.isInteger(quantityIncluded) && quantityIncluded >= 0){
+                        break;
+                    }else alert("QuantityIncluded was invalid!");
+                }while (1);
+                return quantityIncluded;
+            case "typeOfService":
+                let typeOfService;
+                do {
+                    typeOfService = prompt("Enter type of service :\nVilla : 500$ / day \nHouse : 300$ / day\nRoom : 100$ / day");
+                    let temp = typeOfService.toLocaleLowerCase();
+                    if (temp === "villa" || temp === "house" || temp === "room"){
+                        break;
+                    }else alert("Type of service was invalid !")
+                }while (1);
+                return typeOfService;
+            case "rentDays":
+                let rentDays;
+                do {
+                    rentDays = Number(prompt("Enter rentdays :"));
+                    if (Number.isInteger(rentDays) && rentDays > 0){
+                        break;
+                    }else alert("Rentdays was invalid!");
+                }while (1);
+                return rentDays;
+            case "kindOfRoom":
+                let kindOfRoom = prompt("Nhập loại phòng :\nVip , Business , Normal");
+                return kindOfRoom;
+        }
+    }
+    function addNewCustomer(){
+        let name = check("name");
+        let identity = check("identity");
+        let dateOfBirth = check("dateOfBirth");
+        let email  = check("email");
+        let address = check("address");
+        let typeCustomer = check("typeCustomer");
+        let disCount = check("disCount");
+        let quantityIncluded = check("quantityIncluded");
+        let typeOfService = check("typeOfService");
+        let rentDays = check("rentDays");
+        let kindOfRoom = check("kindOfRoom");
+        arrCustomer[arrCustomer.length] = [name,identity,dateOfBirth,email,address,typeCustomer,disCount,quantityIncluded,typeOfService,rentDays,kindOfRoom];
+        
+    }
+    function displayInformationCustomer(){
+        let temp = "<table>";
+        temp += "<tr><th>Name</th><th>ID</th><th>Date of Birth</th><th>Email</th><th>Address</th><th>CustomerType</th><th>Discount</th><th>QuantityIncluded</th><th>TypeOfService</th><th>RentDays</th><th>Kind of Room</th>"
+        for (let i = 0;i < arrCustomer.length;i++){
+            temp += "<tr>";
+            for (let j = 0;j < arrCustomer[i].length;j++){
+                temp += "<td>"+arrCustomer[i][j]+"</td>";
+            }
+            temp += "</tr>";
+        }
+        temp += "</table>";
+        result.innerHTML = temp;
+    }
+    function editInformationCustomer(){
+        displayInformationCustomer();
+        let choosen = parseInt(prompt("Enter customer to edit (ex: 1 ) :\n")) - 1;
+        let idEdit = parseInt(prompt("Enter information that you want to change :\n1.Name"+
+                                                                                "\n2.ID"+
+                                                                                "\n3.Date of birth"+
+                                                                                "\n4.Email"+
+                                                                                "\n5.Address"+
+                                                                                "\n6.Customer type"+
+                                                                                "\n7.Discount"+
+                                                                                "\n8.Quantity included"+
+                                                                                "\n9.Type of service"+
+                                                                                "\n10.Rent days"+
+                                                                                "\n11.Kind of room")) - 1;
+        let infoEdited = prompt("Enter info : ");
+        arrCustomer[choosen][idEdit] = infoEdited;
+    }
+    function deleteCustomer(){
+        displayInformationCustomer();
+        let choosen = parseInt(prompt("Enter customer to delete (ex: 1 ) :\n")) - 1;
+        arrCustomer.splice(choosen,1);
+        displayInformationCustomer();
+    }
+    function displayMainMenu(){
+        let isOut = false;
+        do {
+            let choose = parseInt(prompt("Enter your choose :\n1. Add New Customer"+
+                                                            "\n2. Display Information Customer"+
+                                                            "\n3. Edit Information Customer"+
+                                                            "\n4. Delete Customer"+
+                                                            "\n5. Exit"));
+            switch (choose){
+                case 1:
+                    addNewCustomer();
+                    break;
+                case 2:
+                    displayInformationCustomer();
+                    break;
+                case 3:
+                    editInformationCustomer();
+                    break;
+                case 4:
+                    deleteCustomer();
+                    break;
+                case 5: 
+                    isOut = true;
+            }
+        } while (!isOut);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+table{
+    width: 600px;
+    text-align: left;
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+#inp1{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+#div1{
+    width: 500px;
+    height: 80px;
+    background-color: #e6e6e6;
+}
+tr:nth-child(even){
+    background-color: #e6e6e6;
+}
+.button{
+    background-color: #67e658;
+    color: white;
+    border-style: none ;
+}
+#amountProduct{
+    color: #e64337;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let num1 = 0;
+        let num2 = 1;
+        let fibo = 0;
+        for (let i = 1;i <= 20;i++){
+            fibo = num1 + num2;
+            if (fibo % 5 == 0){
+                alert(fibo+" chia hết cho 5!");
+                break;
+            }
+            num1 = num2;
+            num2 = fibo;
+        }
+    </script>
+</body>
+</html>

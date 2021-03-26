@@ -1,0 +1,19 @@
+.den{
+    background-color: black;
+}
+.trang{
+    background-color: white;
+}
+td{
+    width: 80px;
+    height: 80px;
+}
+.alpha{
+    text-align: center;
+}
+#1{
+    padding-bottom: 20px;
+}
+div{
+    background-color: #ffa813;
+}

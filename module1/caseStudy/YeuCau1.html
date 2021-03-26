@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Phòng</title>
+    <link rel="stylesheet" type="text/css" href="Css/yc1Css.css">
+    <script src="myJs.js"></script>
+</head>
+
+<body>
+    <div id="div">
+        <form>
+            <label>Họ Tên: <input id="fullName" type="text" name="name"></label><br>
+            <label>Số CMND: <input id="identityNumber" type="number" name="identityNumber"></label><br>
+            <label>Ngày sinh: <input id="dob" type="date" name="dateOfBirth"></label><br>
+            <label>Email: <input id="email" type="email" name="email"></label><br>
+            <label>Loại khách hàng:
+                <select id="type" name="customerType">
+                    <option>chọn</option>
+                    <option>Diamond</option>
+                    <option>Platinum</option>
+                    <option>Gold</option>
+                    <option>Silver</option>
+                    <option>Member</option>
+                </select>
+            </label><br>
+            <label>Giảm giá:
+                <select id="discount" name="discount">
+                    <option value="50">50%</option>
+                    <option value="40">40%</option>
+                    <option value="30">30%</option>
+                    <option value="20">20%</option>
+                    <option value="10">10%</option>
+                </select>
+            </label><br>
+            <label>Số lượng đi kèm: <input id="amount" type="number" name="amount"></label><br>
+            <label>Số ngày thuê: <input id="rentDays" type="number" name="rentDays"></label><br>
+            <label>Loại dịch vụ:
+                <select id="serviceType" name="serviceType">
+                    <option>Villa</option>
+                    <option>House</option>
+                    <option>Room</option>
+                </select>
+            </label><br>
+            <label>Loại phòng thuê:
+                <select name="rentalType">
+                    <option>Vip</option>
+                    <option>Business</option>
+                    <option>Normal</option>
+                </select>
+            </label><br>
+            <label>
+                <input class="last" id="submit" type="button"
+                    onclick="getBill(discount.value,rentDays.value,serviceType.value,rentalType.value)" value="Thuê">
+                <input class="last" id="reset" type="reset" value="Nhập lại">
+            </label>
+            <p id="bill"></p>
+        </form>
+    </div>
+    <script>
+        function getBill(salePer, rentDay, serviceTp, rentalTp) {
+            let rental = 0;
+            let priceType = 0;
+            let price = 0;
+            switch (serviceTp) {
+                case "Villa":
+                    priceType = 500;
+                    break;
+                case "House":
+                    priceType = 300;
+                    break;
+                case "Room":
+                    priceType = 100;
+                    break;
+            }
+            switch (rentalTp) {
+                case "Vip":
+                    rental = 3;
+                    break;
+                case "Business":
+                    rental = 2;
+                    break;
+                case "Normal":
+                    rental = 1;
+                    break;
+            }
+            price = parseInt(rentDay) * priceType * rental * (1 - (salePer / 100));
+            document.getElementById("bill").innerHTML = "Tiền phòng của quý khách là: " + price + " $";
+        }
+    </script>
+</body>
+
+</html>

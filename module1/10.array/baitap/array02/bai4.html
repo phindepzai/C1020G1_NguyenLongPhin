@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("nhập vào 1 chuỗi bất kì: ");
+    let arr = [];
+    let ind = 0;
+    arr[ind] = new Array();
+    for (let i = 0; i < str.length; i++) {
+        if (str[i]== " "){
+            ind++;
+            arr[ind] = new Array();
+            continue;
+        }else {
+            arr[ind].push(str[i]);
+        }
+    }
+    alert("số từ trong chuỗi: "+arr.length);
+</script>
+</body>
+</html>

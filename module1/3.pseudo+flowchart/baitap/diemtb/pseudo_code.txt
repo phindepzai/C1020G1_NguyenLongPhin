@@ -1,0 +1,11 @@
+Begin
+ Display "nhập vào điểm Toán"
+ nhập vào T
+ Display "nhập vào điểm Lý"
+ nhập vào L
+ Display "nhập vào điểm Hóa"
+ nhập vào H
+ Average = (T + L + H) / 3
+ Display "Điểm trung bình : "
+ Display Average
+end

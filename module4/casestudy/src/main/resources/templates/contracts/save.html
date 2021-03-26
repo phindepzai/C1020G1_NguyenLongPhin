@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Save Contract</title>
+</head>
+<body>
+<div class="container-fluid">
+    <header th:replace="~{login/layout :: hitdo}">
+    </header>
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('contracts')}"></div>
+        <div class="col-lg-10">
+            <form action="/contracts/save" method="post">
+                <div th:object="${contract}">
+                    <h2>Save contract</h2>
+                    <input type="hidden" class="form-control" th:field="*{id}" id="id">
+                    <div class="form-group">
+                        <label for="startDate">Start Date</label>
+                        <input type="date" class="form-control" th:field="*{startDate}" id="startDate">
+                        <p th:if="${#fields.hasErrors('startDate')}" class="text-danger" th:errors="*{startDate}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">End Date</label>
+                        <input type="date" class="form-control" th:field="*{endDate}" id="endDate">
+                        <p th:if="${#fields.hasErrors('endDate')}" class="text-danger" th:errors="*{endDate}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="deposit">Deposit</label>
+                        <input type="text" class="form-control" th:field="*{deposit}" id="deposit">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee">Employee</label>
+                        <select class="form-control js-example-basic-single"
+                                th:field="*{employee}" id="employee">
+                            <option th:each="em : ${employeeList}" th:value="${em.id}" th:text="${em.id + '-' + em.name}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer">Customer</label>
+                        <select class="form-control js-example-basic-single" th:field="*{customer}" id="customer">
+                            <div th:each="cus : ${customerList}">
+                                <option th:value="${cus.id}" th:text="${cus.id + '-' + cus.name}"></option>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="services">Services</label>
+                        <select class="form-control js-example-basic-single" th:field="*{services}" id="services">
+                            <div th:each="se : ${villaList}">
+                                <option th:value="${se.id}" th:text="${se.id + '-' + se.name}"></option>
+                            </div>
+                            <div th:each="se : ${houseList}">
+                                <option th:value="${se.id}" th:text="${se.id + '-' + se.name}"></option>
+                            </div>
+                            <div th:each="se : ${roomList}">
+                                <option th:value="${se.id}" th:text="${se.id + '-' + se.name}"></option>
+                            </div>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+</body>
+</html>

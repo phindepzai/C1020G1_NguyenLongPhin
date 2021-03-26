@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do You Love Me?</title>
+</head>
+<body>
+    <div style="margin: 50px 200px">
+        <h2>Do You Love Me?</h2>
+        <button id="yes" style="width: 70px" onclick="alert('<3')">Yes</button>
+        <button id="no" style="position:relative;width: 70px" onmouseover="nhay()">No</button>
+    </div>
+<script>
+    let tagNo = document.getElementById("no");
+    function nhay() {
+        let random = randomInteger();
+        tagNo.style.top = random.toString()+"px";
+        tagNo.style.left = random.toString()+"px";
+    }
+    function randomInteger() {
+        return Math.floor(Math.random() * 1) + 600;
+    }
+</script>
+</body>
+</html>

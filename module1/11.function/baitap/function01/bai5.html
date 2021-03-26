@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="getConstellation(star)">
+<script>
+    let starArr = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+    let constellationArr = ["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Major","Leo"];
+    let star;
+    let ind;
+    do {
+        star = prompt("nhập vào tên ngôi sao: ");
+    }while (!isNaN(star));
+    function getConstellation(star) {
+        for (let i = 0; i < starArr.length; i++) {
+            if (star === starArr[i]){
+                ind = i;
+            }
+        }
+        if (ind === undefined){
+            alert("không có ngôi sao nào trong danh sách!");
+        }else {
+            alert("ngôi sao "+star+" thuộc chòm sao "+constellationArr[ind]);
+        }
+    }
+</script>
+</body>
+</html>

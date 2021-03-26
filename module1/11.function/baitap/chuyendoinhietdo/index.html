@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function feetToMeter(feet) {
+        return 0.305 * feet;
+    }
+    function meterToFeet(meter) {
+        return 3.279 * meter;
+    }
+    let choose = parseInt(prompt("nhập vào lựa chọn của bạn: " +
+                                 "\n1.chuyển từ meter sang feet" +
+                                 "\n2.chuyển từ feet sang meter"));
+    let met;
+    let feet;
+    switch (choose) {
+        case 1:
+            met = parseInt(prompt("nhập vào meter: "));
+            feet = meterToFeet(met);
+            alert(met+" meter = "+feet+" feet");
+            break;
+        case 2:
+            feet = parseInt(prompt("nhập vào feet: "));
+            met = feetToMeter(feet);
+            alert(feet+" feet = "+met+" meter");
+            break;
+    }
+</script>
+</body>
+</html>

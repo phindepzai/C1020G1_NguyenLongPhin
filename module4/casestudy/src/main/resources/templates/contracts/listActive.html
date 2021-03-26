@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <meta charset="UTF-8">
+    <title>List Customer Active</title>
+</head>
+
+<body>
+<div th:replace="~{login/layout :: header('Contract')}">
+</div>
+<div class="container-fluid" style="padding:0">
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('Contract')}">
+        </div>
+        <div class="col-lg-10">
+            <div id="list">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Customer Type</th>
+                        <th scope="col">Date Of Birth</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">ID Card</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="contract : ${list}">
+                        <td th:text="${contract.customer.id}"></td>
+                        <td th:text="${contract.customer.name}"></td>
+                        <td th:text="${contract.customer.customerType.name}"></td>
+                        <td th:text="${contract.customer.dateOfBirth}"></td>
+                        <td th:text="${contract.customer.gender}"></td>
+                        <td th:text="${contract.customer.idCard}"></td>
+                        <td th:text="${contract.customer.phone}"></td>
+                        <td th:text="${contract.customer.email}"></td>
+                        <td th:text="${contract.customer.address}"></td>
+                        <td><a th:href='@{/details/create/{id}(id=${contract.id})}' class='text-info' title='Add ContractDetail'><span
+                                class='material-icons'>add</span></a>
+                            <a th:href='@{/contracts/view/{id}(id=${contract.id})}' class='text-success'
+                               title='View Contract'
+                               data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>
+                            <a th:href='@{/details/view/{id}(id=${contract.id})}' class='text-success'
+                               title='View ContractDetail'
+                               data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Can't recovery if deleted.Are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="#" id="delete" type="button" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#key').on("keyup", function () {
+            let type = $('#type').val();
+            let key = $('#key').val();
+            if (key == null) {
+                key = "";
+            }
+            $.ajax({
+                url: "/" + type.toLowerCase() + "s/active/search?key=" + key,
+                type: "GET",
+                success: function (data) {
+                    let content = data.content;
+                    let table = "<table class='table table-hover'><thead><tr><th scope='col'>ID</th><th scope='col'>Name</th><th scope='col'>Customer Type</th><th scope='col'>Date Of Birth</th><th scope='col'>Gender</th><th scope='col'>ID Card</th><th scope='col'>Phone</th><th scope='col'>Email</th><th scope='col'>Address</th><th scope='col'>Action</th></tr></thead><tbody>";
+                    for (let i = 0; i < content.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + content[i].customer.id + "</td>";
+                        table += "<td>" + content[i].customer.name + "</td>";
+                        table += "<td>" + content[i].customer.customerType.name + "</td>";
+                        table += "<td>" + content[i].customer.dateOfBirth + "</td>";
+                        table += "<td>" + content[i].customer.gender + "</td>";
+                        table += "<td>" + content[i].customer.idCard + "</td>";
+                        table += "<td>" + content[i].customer.phone + "</td>";
+                        table += "<td>" + content[i].customer.email + "</td>";
+                        table += "<td>" + content[i].customer.address + "</td>";
+                        table += "<td><a href='/details/create/"+content[i].id+"' class='text-info' title='Add ContractDetail'><span class='material-icons'>add</span></a>";
+                        table += "<a href='/contracts/view/"+content[i].id+"' class='text-success' title='View Contract' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        table += " <a href='/details/view/"+content[i].id+"' class='text-success' title='View ContractDetail' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        table += "</td></tr>";
+                    }
+                    table += "</tbody></table>";
+                    $('#list').html(table);
+                    $('#key').val(key);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+            event.preventDefault();
+        });
+    });
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            let type = $('#type').val();
+            let key = $('#key').val();
+            let page = $(this).html();
+            if (page == 'Previous') {
+                page = $('#page').val() * 1 - 1;
+            } else if (page == 'Next') {
+                page = $('#page').val() * 1 + 1;
+            }
+            if (key == null) {
+                key = "";
+            }
+            let url = "/" + type.toLowerCase() + "s/active/search?key=" + key + "&page=" + page;
+            console.log(url);
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function (data) {
+                    let content = data.content;
+                    console.log(content);
+                    let table = "<table class='table table-hover'><thead><tr><th scope='col'>ID</th><th scope='col'>Name</th><th scope='col'>Customer Type</th><th scope='col'>Date Of Birth</th><th scope='col'>Gender</th><th scope='col'>ID Card</th><th scope='col'>Phone</th><th scope='col'>Email</th><th scope='col'>Address</th><th scope='col'>Action</th></tr></thead><tbody>";
+                    for (let i = 0; i < content.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + content[i].customer.id + "</td>";
+                        table += "<td>" + content[i].customer.name + "</td>";
+                        table += "<td>" + content[i].customer.customerType.name + "</td>";
+                        table += "<td>" + content[i].customer.dateOfBirth + "</td>";
+                        table += "<td>" + content[i].customer.gender + "</td>";
+                        table += "<td>" + content[i].customer.idCard + "</td>";
+                        table += "<td>" + content[i].customer.phone + "</td>";
+                        table += "<td>" + content[i].customer.email + "</td>";
+                        table += "<td>" + content[i].customer.address + "</td>";
+                        table += "<td><a href='/details/create/"+content[i].id+"' class='text-info' title='Add ContractDetail'><span class='material-icons'>add</span></a>";
+                        table += "<a href='/contracts/view/"+content[i].id+"' class='text-success' title='View Contract' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        table += " <a href='/details/view/"+content[i].id+"' class='text-success' title='View ContractDetail' data-toggle='tooltip'><i class='material-icons'>&#xE417;</i></a>";
+                        table += "</td></tr>";
+                    }
+                    table += "</tbody></table>";
+                    if (data.totalPages < 2) {
+                        document.getElementById("previous").className = "page-item disabled";
+                        document.getElementById("first").className = "page-item active";
+                        document.getElementById("second").className = "page-item disabled";
+                        document.getElementById("third").className = "page-item disabled";
+                        document.getElementById("next").className = "page-item disabled";
+                        $('#firstA').html("1");
+                        $('#secondA').html("2");
+                        $('#thirdA').html("3");
+                    } else if (data.totalPages == 2) {
+                        document.getElementById("third").className = "page-item disabled";
+                        if (page < 2){
+                            document.getElementById("previous").className = "page-item disabled";
+                            document.getElementById("first").className = "page-item active";
+                            document.getElementById("second").className = "page-item";
+                            document.getElementById("next").className = "page-item";
+                            $('#firstA').html("1");
+                            $('#secondA').html("2");
+                            $('#thirdA').html("3");
+                        } else {
+                            document.getElementById("previous").className = "page-item";
+                            document.getElementById("first").className = "page-item";
+                            document.getElementById("second").className = "page-item active";
+                            document.getElementById("next").className = "page-item disabled";
+                            $('#firstA').html("1");
+                            $('#secondA').html("2");
+                            $('#thirdA').html("3");
+                        }
+                    } else {
+                        if (page < 2){
+                            document.getElementById("previous").className = "page-item disabled";
+                            document.getElementById("first").className = "page-item active";
+                            document.getElementById("second").className = "page-item";
+                            document.getElementById("third").className = "page-item";
+                            document.getElementById("next").className = "page-item";
+                            $('#firstA').html("1");
+                            $('#secondA').html("2");
+                            $('#thirdA').html("3");
+                        } else if (page == data.totalPages){
+                            document.getElementById("previous").className = "page-item";
+                            document.getElementById("first").className = "page-item";
+                            document.getElementById("second").className = "page-item";
+                            document.getElementById("third").className = "page-item active";
+                            document.getElementById("next").className = "page-item disabled";
+                            $('#firstA').html(page - 2);
+                            $('#secondA').html(page - 1);
+                            $('#thirdA').html(page);
+                        } else {
+                            document.getElementById("previous").className = "page-item";
+                            document.getElementById("first").className = "page-item";
+                            document.getElementById("second").className = "page-item active";
+                            document.getElementById("third").className = "page-item";
+                            document.getElementById("next").className = "page-item";
+                            $('#firstA').html(page - 1);
+                            $('#secondA').html(page);
+                            $('#thirdA').html(page * 1 + 1);
+                        }
+                    }
+                    $('#list').html(table);
+                    $('#key').val(key);
+                    $('#page').val(page);
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+            event.preventDefault();
+        });
+    });
+    $(document).ready(function () {
+        $('.delete').click(function () {
+            let tag = $(this)[0];
+            document.getElementById("delete").href = "/contract.customers/delete/" + tag.id;
+            $("#modelId").modal('show');
+        })
+    })
+</script>
+</body>
+</html>

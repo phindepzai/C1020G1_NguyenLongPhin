@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<div th:replace="~{login/layout :: header('')}">
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('')}">
+        </div>
+        <div th:replace="~{login/layout :: home}">
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+</body>
+</html>

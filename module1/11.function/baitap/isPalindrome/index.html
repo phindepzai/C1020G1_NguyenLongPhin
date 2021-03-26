@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="alert(isPalindrome(arr))">
+<script>
+    let arr = [];
+    let str = prompt("nhập vào chuỗi bất kì!");
+    for (let i = 0; i < str.length; i++) {
+        arr[i] = str.charAt(i);
+    }
+    function isPalindrome(arr){
+        if (arr[0] === arr[arr.length-1]){
+            arr.shift();
+            arr.pop();
+            if (arr == ""){
+                return true;
+            }else {
+                return isPalindrome(arr);
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

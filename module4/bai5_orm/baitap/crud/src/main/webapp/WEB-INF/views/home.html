@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/layout :: head('List Employee')}">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <div th:replace="~{/layout :: #div4}"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div th:replace="~{/layout :: #div3(${employees})}"></div>
+    </div>
+</div>
+<script th:replace="~{/layout :: jquery}"></script>
+<script th:replace="~{/layout :: popperjs}"></script>
+<script th:replace="~{/layout :: boostrapjs}"></script>
+</body>
+</html>

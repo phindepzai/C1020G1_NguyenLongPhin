@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(name) {
+            this.name = name;
+            this.message = "";
+            this.inbox = "";
+            this.outbox = "";
+            this.pin = 50;
+            this.turn = "off";
+            this.error = "Your phone is off\nPlease turn it on";
+            this.check();
+        }
+
+        check() {
+            if (this.turn === "off") {
+                return false;
+            }
+            return true;
+        }
+
+        getStatus() {
+            if (this.check()) {
+                return "Phone is " + this.turn + "\nPin : " + this.pin + "%";
+            }
+            return this.error;
+        }
+
+        turnPhone() {
+            if (this.turn === "off") {
+                this.turn = "on";
+                this.pin--;
+            } else {
+                this.turn = "off";
+            }
+            alert("Phone is " + this.turn)
+        }
+
+        chargePin() {
+            while (this.pin < 100) {
+                this.pin++;
+            }
+            alert("Pin is full!");
+        }
+
+        text(message) {
+            if (!this.check()) {
+                alert(this.error);
+            } else {
+                this.message = message;
+                this.pin--;
+            }
+        }
+
+        getMessage() {
+            if (this.check()) {
+                return this.message;
+            }
+            return this.error;
+        }
+
+        receiveMessage(mobile, message) {
+            this.inbox += "\nfrom " + mobile.name + "\n" + message;
+            this.pin--;
+            return "";
+        }
+
+        sendMessage(mobile, message) {
+            if (this.check()) {
+                mobile.receiveMessage(this, message);
+                alert("đã gửi thành công!");
+                this.outbox += "\nto " + mobile.name + "\n" + message;
+                this.pin--;
+                return "";
+            }
+            return alert(this.error);
+        }
+
+        getInbox() {
+            if (this.check()) {
+                this.pin--;
+                return this.inbox;
+            }
+            return this.error;
+        }
+
+        getOutbox() {
+            if (this.check()) {
+                this.pin--;
+                return this.outbox;
+            }
+            return this.error;
+        }
+    }
+
+    let phone;
+    let isEnd = false;
+    let samsung = new Mobile("samsung");
+    let iphone = new Mobile("iphone");
+    let message;
+    do {
+        let choosePhone = parseInt(prompt("nhập vào điện thoại mà bạn muốn thao tác : \n1.Samsung" +
+                                                                                     "\n2.Iphone" +
+                                                                                     "\n0.Thoát chương trình"));
+        switch (choosePhone) {
+            case 1:
+                phone = samsung;
+                break;
+            case 2:
+                phone = iphone;
+                break;
+            case 0:
+                isEnd = true;
+                break;
+        }
+        while (!isEnd){
+            let choose = parseInt(prompt("nhập lựa chọn của bạn: \n1.kiểm tra trạng thái điện thoại" +
+                "\n2.bật và tắt điện thoại" +
+                "\n3.xạc pin điện thoại" +
+                "\n4.soạn tin nhắn" +
+                "\n5.gửi tin nhắn tới một chiếc mobile khác" +
+                "\n6.xem tin trong hộp thư đến" +
+                "\n7.xem tin đã gửi" +
+                "\n0.thoát chương trình"));
+            switch (choose) {
+                case 1:
+                    alert(phone.getStatus());
+                    break;
+                case 2:
+                    phone.turnPhone();
+                    break;
+                case 3:
+                    phone.chargePin();
+                    break;
+                case 4:
+                    message = prompt("nhập vào tin nhắn mà bạn muốn gửi: ");
+                    phone.text(message);
+                    break;
+                case 5:
+                    message = phone.getMessage();
+                    if (message === "") {
+                        alert("chưa soạn tin!");
+                        break;
+                    }
+                    if (phone === samsung) {
+                        phone.sendMessage(iphone, message);
+                    } else {
+                        phone.sendMessage(samsung, message);
+                    }
+                    break;
+                case 6:
+                    alert(phone.getInbox);
+                    break;
+                case 7:
+                    alert(phone.getOutbox());
+                    break;
+                case 0:
+                    isEnd = true;
+                    break;
+            }
+        }
+    } while (!isEnd);
+</script>
+</body>
+</html>

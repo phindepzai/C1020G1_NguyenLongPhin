@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let count = 0;
+    let amount = parseInt(prompt("nhập vào số lượng mảng: "));
+    for (let i = 0; i < amount; i++) {
+        arr[i] = parseInt(prompt("nhập phân tử thứ "+i+" của mảng"));
+    }
+    for (let a of arr) {
+        if (a < 0) {
+            count++
+        }
+    }
+    alert("số lượng số nguyên âm trong mảng: "+count);
+</script>
+</body>
+</html>

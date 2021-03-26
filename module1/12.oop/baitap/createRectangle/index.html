@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" style="border: 1px solid #888; height: 300px; width: 600px;"></canvas>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        getWidth() {
+            return this.width;
+        }
+
+        getHeight() {
+            return this.height;
+        }
+
+        getArea() {
+            return this.width * this.height;
+        }
+
+        getPerimeter() {
+            return (this.width + this.height) * 2;
+        }
+
+        drawInCanvas(){
+            let canvas = document.getElementById('myCanvas'),
+                ctx = canvas.getContext('2d');
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(20,20,this.width,this.height);
+        }
+        setWidth(width){
+            this.width = width;
+        }
+        setHeight(height){
+            this.height = height;
+        }
+        setRectangle(width,height){
+            this.height = height;
+            this.width = width;
+        }
+    }
+    let rectangleA = new Rectangle(300,150);
+    rectangleA.drawInCanvas();
+    rectangleA.setRectangle(200,100);
+    alert("diện tích hình chữ nhật là : "+rectangleA.getArea());
+    alert("chu vi hình chữ nhật là : "+rectangleA.getPerimeter());
+</script>
+</body>
+</html>

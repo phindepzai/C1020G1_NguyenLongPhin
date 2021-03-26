@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 3</title>
+</head>
+<body>
+<script>
+    let fullName = "Nguyen Long Phin";
+    let idCard = "123456789";
+    let dateOfBirth = "12/12/2001";
+    let email = "abc@codegym.com";
+    let address = "Đà Nẵng";
+    let customer = "Diamond";
+    let disCountPercent = "50";
+    let quantityIncluded = "500";
+    let rentDays = "10";
+    let typeOfService = "Villa";
+    let kindOfRoom = "Vip";
+    menu();
+    function menu() {
+        let choose = prompt("Nhập thao tác muốn thực hiện:\n1.show\n2.edit");
+        switch (choose) {
+            case "1":
+                show();
+                break;
+            case "2":
+                edit();
+                break;
+            default:
+                alert("Failed");
+                break;
+        }
+    }
+    function show() {
+        if (typeOfService === "Villa") {
+            monneyForServiceType = 500;
+        } else if (typeOfService === "House") {
+            monneyForServiceType = 300;
+        } else {
+            monneyForServiceType = 100;
+        }
+        let totalDisCount = 0;
+        let totalPay;
+        let currentYear = new Date().getFullYear();
+        let birthday = new Date(dateOfBirth).getFullYear();
+        let ageCustomer = currentYear - birthday;
+        let disCountForRentDays = 0;
+        if (rentDays >= 7)
+            disCountForRentDays = 30;
+        else if (rentDays >= 5)
+            disCountForRentDays = 20;
+        else if (rentDays >= 2)
+            disCountForRentDays = 10;
+        let disCountForCustomer = 0;
+        switch (customer) {
+            case "Diamond":
+                disCountForCustomer = 15;
+                break;
+            case "Platinum":
+                disCountForCustomer = 10;
+                break;
+            case "Gold":
+                disCountForCustomer = 5;
+                break;
+            case "Silve":
+                disCountForCustomer = 2;
+                break;
+        }
+        let disCountForAdressAndAge = 0;
+        if (address === "Đà Nẵng")
+            if (ageCustomer >= 30)
+                disCountForAdressAndAge = 22;
+            else if (ageCustomer >= 20)
+                disCountForAdressAndAge = 21;
+            else disCountForAdressAndAge = 20;
+        if (address === "Huế")
+            disCountForAdressAndAge = 10;
+        if (address === "Quảng Nam")
+            disCountForAdressAndAge = 5;
+        totalDisCount = disCountForRentDays + disCountForCustomer + disCountForAdressAndAge;
+        totalPay = (monneyForServiceType * parseInt(rentDays) * (1 - (parseInt(disCountPercent) / 100)) - totalDisCount) + "$";
+        alert("1.Tên khách hàng: " + fullName + "" +
+            "\n" + "2.Số CMND: " + idCard + "" +
+            "\n" + "3.Ngày sinh: " + dateOfBirth + "" +
+            "\n" + "4.Email: " + email + "" +
+            "\n" + "5.Địa chỉ: " + address + "" +
+            "\n" + "6.Loại Customer: " + customer + "" +
+            "\n" + "7.Phần trăm giảm giá: " + disCountPercent + "%" +
+            "\n" + "8.Số lượng đi kèm: " + quantityIncluded + "" +
+            "\n" + "9.Số ngày thuê: " + rentDays + "" +
+            "\n" + "10.Loại dịch vụ: " + typeOfService + "" +
+            "\n" + "11.Loại phòng: " + kindOfRoom + "" +
+            "\n" + "12.Số tiền phải trả là: " + totalPay + "");
+        menu();
+    }
+    function edit() {
+        let choose = prompt("1.Tên khách hàng: " + fullName + "" +
+            "\n" + "2.Số CMND: " + idCard + "" +
+            "\n" + "3.Ngày sinh: " + dateOfBirth + "" +
+            "\n" + "4.Email: " + email + "" +
+            "\n" + "5.Địa chỉ: " + address + "" +
+            "\n" + "6.Loại Customer: " + customer + "" +
+            "\n" + "7.Phần trăm giảm giá: " + disCountPercent + "%" +
+            "\n" + "8.Số lượng đi kèm: " + quantityIncluded + "" +
+            "\n" + "9.Số ngày thuê: " + rentDays + "" +
+            "\n" + "10.Loại dịch vụ: " + typeOfService + "" +
+            "\n" + "11.Loại phòng: " + kindOfRoom + "");
+        switch (choose) {
+            case "1":
+                fullName = prompt("Nhập lại tên:");
+                fullName = chuanHoaDuLieu(fullName);
+                break;
+            case "2":
+                let check2 = true;
+                do {
+                    idCard = prompt("Nhập lại CMND:");
+                    let testCMND = isNaN(idCard);
+                    let test2 = idCard.indexOf("+");
+                    let test3 = idCard.indexOf("-");
+                    let test4 = idCard.indexOf(".");
+                    if (testCMND || idCard == 0 || test2 > -1 || test3 > -1 || test4 > -1 || idCard.length !== 9 ) {
+                        alert("Định dạng CMND sai !"+"\n"+"CMND phải có 9 số !");
+                    }
+                    else check2 = false;
+                } while (check2);
+                break;
+            case "3":
+                do {
+                    dateOfBirth = prompt("Nhập lại ngày , tháng , năm sinh:\nTheo định dạng : ngày/tháng/năm\n Ví dụ : 11/01/2001");
+                    let cutDate = dateOfBirth.slice(0,2); // lấy 2 số của tháng
+                    let cutMonth = dateOfBirth.slice(3,5);
+                    let cutYear = dateOfBirth.slice(6);
+                    let testMonth = dateOfBirth.indexOf("/");
+                    let testDate = dateOfBirth.lastIndexOf("/");
+                    let testDauCong = dateOfBirth.indexOf("+");
+                    let test = new Date(dateOfBirth);
+                    if (test =="Invalid Date" || (cutDate == "30") &&  (cutMonth == "02")
+                        || (cutDate == "31") && ((cutMonth == "02")
+                            ||  (cutMonth == "04")
+                            ||  (cutMonth == "06")
+                            ||  (cutMonth == "09")
+                            ||  (cutMonth == "11"))
+                        || testMonth < 2
+                        || testDate < 2
+                        || isNaN(cutMonth) == true
+                        || isNaN(cutDate) == true
+                        || isNaN(cutYear) == true
+                        || cutMonth <= 0
+                        || testDauCong > -1
+                        || cutYear <= 1890
+                        || cutYear > new Date().getFullYear() ) {
+                        alert("Ngày tháng năm sinh không hợp lệ !");
+                        continue;
+                    }
+                    break;
+                } while (1);
+                break;
+            case "4":
+                let check4 = true;
+                do {
+                    email = prompt("Nhập lại Email:");
+                    let aCong = email.indexOf("@");
+                    let dauCham = email.lastIndexOf(".");
+                    if ( (aCong < 1) || (dauCham < aCong + 4) || (dauCham+4>email.length) ) {
+                        // aCong < n thì trước @ là n kí tự
+                        // dauCham < aCong+n' thì trước dấu chấm là n'-1 kí tự
+                        alert("Email của bạn không hợp lệ !");
+                    }
+                    else check4 = false;
+                }while (check4);
+                break;
+            case "5":
+                address = prompt("Nhập lại địa chỉ:\nTên Thành phố:");
+                address = chuanHoaDuLieu(address);
+                break;
+            case "6":
+                customer = prompt("Nhập lại loại Customer:\nDiamond, Platinum, Gold, Silver, Member");
+                customer = chuanHoaDuLieu(customer);
+                break;
+            case "7":
+                let check7 = true;
+                do {
+                    disCountPercent = prompt("Nhập lại phần trăm giảm giá:\n1.Giá trị từ 0 - 100\n2.Đơn vị (%)");
+                    let testDisCountPercent = isNaN(disCountPercent);
+                    let testSoAm = disCountPercent.indexOf("-");
+                    let testSoThuc = disCountPercent.indexOf(".");
+                    let testDauPhay = disCountPercent.indexOf(",");
+                    let testDauCong = disCountPercent.indexOf("+");
+                    if (testDisCountPercent || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
+                        alert("Số liệu giảm giá của bạn không hợp lý !");
+                    }
+                    else check7 = false;
+                } while (check7);
+                break;
+            case "8":
+                let check8 = true;
+                do {
+                    quantityIncluded = prompt("Nhập lại số lượng đi kèm:");
+                    let testQuantityIncluded = isNaN(quantityIncluded);
+                    let testSoAm = quantityIncluded.indexOf("-");
+                    let testSoThuc = quantityIncluded.indexOf(".");
+                    let testDauPhay = quantityIncluded.indexOf(",");
+                    let testDauCong = quantityIncluded.indexOf("+");
+                    if (testQuantityIncluded || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
+                        alert("Số lượng đi kèm của bạn không hợp lý !")
+                    }
+                    else check8 = false;
+                } while (check8); //bieu thuc chinh quy
+                break;
+            case "9":
+                let check9 = true;
+                do {
+                    rentDays = prompt("Nhập lại số ngày thuê:");
+                    let testRentDays = isNaN(rentDays);
+                    let testSoAm = rentDays.indexOf("-");
+                    let testSoThuc = rentDays.indexOf(".");
+                    let testDauPhay = rentDays.indexOf(",");
+                    let testDauCong = rentDays.indexOf("+");
+                    if (testRentDays || rentDays == 0 || testSoAm > -1 || testDauCong > -1 || testSoThuc > -1 || testDauPhay > -1){
+                        alert("Số ngày thuê của bạn không hợp lý !")
+                    }
+                    else check9 = false;
+                } while (check9);
+                break;
+            case "10":
+                typeOfService = prompt("Nhập lại loại dịch vụ:\nVilla: 500$/1 ngày\nHouse: 300$/1 ngày\nRoom: 100$/1 ngày");
+                typeOfService = chuanHoaDuLieu(typeOfService);
+                break;
+            case "11":
+                kindOfRoom = prompt("Nhập lại loại phòng:\nVip, Business,  Normal");
+                kindOfRoom = chuanHoaDuLieu(kindOfRoom);
+                break;
+            default:
+                alert("Failed");
+                break;
+        }
+        show()
+    }
+    function chuanHoaDuLieu(nhapDuLieu) {
+        let duLieuChuan = "";
+        nhapDuLieu = nhapDuLieu.toLocaleLowerCase();
+        for (let i = 0; i < nhapDuLieu.length; i++) {
+            if (nhapDuLieu.charAt(i) === " " || nhapDuLieu.charAt(i + 1) === " ")
+                continue;
+            if (i === 0 || nhapDuLieu.charAt(i - 1) === " ") {
+                duLieuChuan += nhapDuLieu.charAt(i).toLocaleUpperCase();
+                continue;
+            }
+            duLieuChuan += nhapDuLieu.charAt(i);
+        }
+        return duLieuChuan;
+    }
+</script>
+</body>
+</html>

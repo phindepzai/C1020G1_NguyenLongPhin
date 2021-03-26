@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="~{login/layout :: boostrapHead}">
+    <title>Save ContractDetails</title>
+</head>
+<body>
+<div class="container-fluid">
+    <header th:replace="~{login/layout :: hitdo}">
+    </header>
+    <div class="row">
+        <div th:replace="~{login/layout :: left-body('contracts')}"></div>
+        <div class="col-lg-10">
+            <form action="/details/save" method="post">
+                <div th:object="${details}">
+                    <h2>Save Details</h2>
+                    <input type="hidden" class="form-control" th:field="*{id}" id="id">
+                    <div class="form-group" th:if="${contract == null}">
+                        <label for="contract">Contract</label>
+                        <select class="form-control" th:field="*{contract}" id="contract">
+                            <div th:each="con : ${contractList}">
+                                <option th:value="${con.id}"
+                                        th:text="${con.id+'||'+con.startDate+'->'+con.endDate}"></option>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="form-group" th:if="${contract != null}">
+                        <label for="contract">Contract</label>
+                        <input readonly type="text" th:field="*{contract}" class="form-control" id="contract">
+                    </div>
+                    <div class="form-group">
+                        <label for="attachService">Attach Service</label>
+                        <select class="form-control" th:field="*{attachService}" id="attachService">
+                            <div th:each="attach : ${attachList}">
+                                <option th:value="${attach.id}" th:text="${attach.name}"></option>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" class="form-control" th:field="*{quantity}" id="quantity">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="~{login/layout :: footer}"></footer>
+<script th:replace="~{login/layout :: jquery}"></script>
+<script th:replace="~{login/layout :: popper}"></script>
+<script th:replace="~{login/layout :: boostrap}"></script>
+</body>
+</html>

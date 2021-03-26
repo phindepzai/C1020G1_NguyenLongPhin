@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">NO</th>
+            <th scope="col">Title</th>
+            <th scope="col">Subtitle</th>
+            <th scope="col">Date</th>
+            <th scope="col">Author</th>
+            <th scope="col">ACTION</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="blog,blogStat : ${list}">
+            <td th:text="${blogStat.index+1}"></td>
+            <td th:text="${blog.title}"></td>
+            <td th:text="${blog.subtitle}"></td>
+            <td th:text="${blog.date}"></td>
+            <td th:text="${blog.author}"></td>
+            <td><a th:href="@{/edit/{id}(id=${blog.getId()})}">
+                <button class="btn btn-primary">Edit</button>
+            </a>
+                <a th:href="@{/delete/{id}(id=${blog.getId()})}">
+                    <button class="btn btn-danger">Delete</button>
+                </a>
+                <a th:href="@{/view/{id}(id=${blog.getId()})}">
+                    <button class="btn btn-success">View</button>
+                </a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <p th:text="show +${list.size()}+ entry"></p>
+        <form action="#">
+            <input type="hidden" id="page" th:value="${pageKey.page + 1}">
+            <input type="hidden" id="key" th:value="${pageKey.key}">
+            <input type="hidden" id="idCate" th:value="${pageKey.idCate}">
+         </form>
+    </div>
+</body>
+</html>

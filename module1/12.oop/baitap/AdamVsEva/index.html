@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+</head>
+
+<body>
+    <script>
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            isMale() {
+                if (this.gender === "male") {
+                    return true;
+                }
+                return false;
+            }
+            checkApple(apple) {
+                if (apple.getWeight > 0) {
+                    return true;
+                }
+                return false;
+            }
+            eat(apple) {
+                apple.decrease();
+                console.log(this.name + " đã ăn táo.");
+            }
+            say(str) {
+                console.log(str + "\n" + this.name + " said.");
+            }
+            getName() {
+                return this.name;
+            }
+            setName(name) {
+                this.name = name;
+            }
+            getWeight() {
+                return this.weight;
+            }
+            setWeight(weight) {
+                this.weight = weight;
+            }
+        }
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+            decrease() {
+                this.weight--;
+            }
+            isEmpty() {
+                if (this.weight > 0) {
+                    return false;
+                }
+                return true;
+            }
+            getWeight() {
+                return this.weight;
+            }
+        }
+        let adam = new Human("adam", "male", 65);
+        let eva = new Human("eva", "female", 45);
+        let apple = new Apple();
+        eva.say("để bố ăn trái này.");
+        eva.eat(apple);
+        adam.say("bỏ ra bạn ei!");
+        while (apple.getWeight > 0) {
+            adam.eat(apple);
+        }
+    </script>
+</body>
+
+</html>

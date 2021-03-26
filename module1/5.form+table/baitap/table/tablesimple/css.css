@@ -1,0 +1,22 @@
+table{
+    width: 80%;
+    border-collapse: collapse;
+    margin: 10px 200px;
+}
+td{
+    padding:10px 10px 10px 10px;
+}
+#tr2{
+    background-color: #ffb039;
+}
+.a{
+    background-color: #fff12f;
+}
+h1{
+    text-align: center;
+    color: #3636ff;
+}
+div{
+    color: #3636ff;
+    font-size: 20px;
+}

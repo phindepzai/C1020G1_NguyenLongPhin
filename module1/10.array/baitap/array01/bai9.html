@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let b = [];
+    let c = [];
+    let length = 10;
+    alert("nhập mảng a!");
+    for (let i = 0; i < length; i++) {
+        a[i] = prompt("nhập vào giá trị của phần tử thứ "+[i]);
+    }
+    alert("nhập mảng b!");
+    for (let i = 0; i < length; i++) {
+        b[i] = prompt("nhập vào giá trị của phần tử thứ "+[i]);
+    }
+    c = b.concat(a);
+    alert(c.toString());
+</script>
+</body>
+</html>

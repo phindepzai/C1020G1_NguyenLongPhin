@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sở thích</title>
+    <link rel="stylesheet" type="text/css" href="BinCss.css">
+</head>
+<body>
+    <form id="form1">
+        <fieldset>
+        <h2 id="h1">SỞ THÍCH CỦA BẠN</h2><br>
+        <label id="label1">Họ và Tên<input type="text" name="name" class="width200" id="name"></label><br>
+        <label id="label9">Email<input type="email" name="email" class="marginleft10"></label><br>
+        <label id="label10">Sở thích</label>
+        <label id="label2" class="sothich"><input class="marginleft10" name="hobby" value="sport" type="checkbox"/> Thể thao</label>
+        <label id="label3" class="sothich"><input class="marginleft10" name="hobby" value="music" type="checkbox"/> Âm nhạc</label>
+        <label id="label4" class="sothich"><input class="marginleft15" name="hobby" value="read" type="checkbox"/> Đọc sách</label><br>
+        <label id="label5" class="sothich"><input id="luotweb" class="sothich" name="hobby" value="surf web" type="checkbox"/> Lướt web</label>
+        <label id="label6" class="sothich"><input name="hobby" value="play game" type="checkbox"/> chơi game</label>
+        <label id="label7" class="sothich"><input name="hobby" value="dienanh" type="checkbox"/> Điện ảnh</label><br>
+        <label class="sothich"><input id="dulich" class="sothich" name="hobby" value="travel" type="checkbox"/> Du lịch</label><br>
+        <input type="submit" value="Gửi thông tin" id="submit">
+        <input type="reset"  value="Nhập lại" id="reset">
+        </fieldset>
+    </form>
+    <hr>
+    <form id="form2">
+        <fieldset>
+            <h2 id="h2">ĐĂNG KÝ HỌC VIÊN</h2><br>
+            <label>Họ và Tên<input class="width200" id="marginleft60" type="text" name="name"></label><br>
+            <label>Ngày Sinh<input class="width150" id="marginleft59" type="text" name="date"></label><br>
+            <label>Giới tính
+                <input id="marginleft70" type="radio" name="gender" value="Nam">Nam
+                <input type="radio" name="gender" value="Nữ">Nữ
+            </label><br>
+            <label>Địa chỉ<textarea class="width200" id="marginleft85" rows="3" cols="10" name="address">Nhập địa chỉ...</textarea></label><br>
+            <label>Lớp
+                <select name="class" class="marginleft105">
+                    <option>--chọn lớp--</option>
+                    <option value="c1020g1">C1020G1</option>
+                </select>
+            </label><br>
+            <label>Email<input type="email" name="email" class="marginleft95"></label><br>
+            <label>Điện thoại<input type="number" name="phone" class="marginleft58"></label><br>
+            <label><input type="submit" value="Đăng ký" class="marginleft140"></label>
+            <label><input type="reset" value="Nhập lại"></label>
+        </fieldset>
+    </form>
+</body>
+</html>

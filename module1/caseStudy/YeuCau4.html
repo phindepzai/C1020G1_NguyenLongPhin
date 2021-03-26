@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Css/yc4Css.css" type="text/css">
+</head>
+
+<body onload="menu()">
+    <table id="table">
+    </table>
+    <script>
+        let arrNameCustomers = [];
+        let temp = "";
+        let result = document.getElementById("table");
+        let arr = [];
+        let str = "";
+
+        function menu() {
+            let choose;
+            choose = parseInt(prompt("Input your choose: \n1.Show customer\n2.Add customer\n3.Sort By Name"));
+            switch (choose) {
+                case 1:
+                    show();
+                    break;
+                case 2:
+                    add();
+                    break;
+                case 3:
+                    sortByAl();
+                    break;
+                default:
+                    alert("Error!");
+                    break;
+            }
+        }
+
+        function sortByAl() {
+            let a;
+            for (let i = 0; i < arrNameCustomers.length; i++) {
+                for (let j = arrNameCustomers[i].length - 1; j >= 0; j--) {
+                    if (arrNameCustomers[i].charAt(j) === " ") {
+                        for (let k = j + 1; k < arrNameCustomers[i].length; k++) {
+                            str += arrNameCustomers[i].charAt(k);
+                        }
+                        break;
+                    }
+                }
+                arr.push(str);
+                str = "";
+            }
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[i] > arr[j]) {
+                        let tmp = arrNameCustomers[i];
+                        arrNameCustomers[i] = arrNameCustomers[j];
+                        arrNameCustomers[j] = tmp;
+                    }
+                }
+            }
+        }
+
+        function show() {
+            temp += "<tr><th colspan='5'>Customer Name</th>";
+            temp += "<th id='amountCustomer'>" + arrNameCustomers.length + " Customer </th></tr>";
+            for (let i = 0; i < arrNameCustomers.length; i++) {
+                let id = i;
+                temp += "<form><tr><td colspan='5'>" + arrNameCustomers[i] + "</td>";
+                temp += "<td><input class='button' type='button' value='delete' onclick='deleted(id)'></td>";
+                temp += "</tr></form>";
+            }
+            temp += "<button onclick=\"menu()\">Menu</button>";
+            result.innerHTML = temp;
+            temp = "";
+        }
+
+        function add() {
+            let customerName = prompt("Name Customer : ");
+            arrNameCustomers.push(customerName);
+            menu();
+        }
+
+        function deleted(id) {
+            // cách 1 (không dùng hàm):
+            for (let i = 0; i < arrNameCustomers.length - 1; i++) {
+                if (i >= id) {
+                    arrNameCustomers[i] = arrNameCustomers[i + 1];
+                }
+            }
+            arrNameCustomers.length = arrNameCustomers.length - 1;
+            show();
+            // cách 2 (dùng hàm splice):
+            // arrNameCustomers.splice(i, 1);
+            // show();
+        }
+    </script>
+</body>
+
+</html>

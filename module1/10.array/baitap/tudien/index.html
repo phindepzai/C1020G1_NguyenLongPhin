@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <input id="word" type="text" name="word"><br>
+        <input type="button" value="translate" onclick="tranSlate()" style="margin-top: 10px">
+        <p id="result"></p>
+    </form>
+<script>
+    let tag = document.getElementById("word");
+    let result = document.getElementById("result");
+    let arr1 = ["game","music","football"];
+    let arr2 = ["trò chơi","âm nhạc","bóng đá"];
+    function tranSlate() {
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr1[i] === tag.value.toLowerCase()){
+                result.innerHTML = arr2[i];
+            }
+        }
+        if (result.innerHTML == ""){
+            alert("từ này không có trong từ điển!");
+        }
+    }
+</script>
+</body>
+</html>

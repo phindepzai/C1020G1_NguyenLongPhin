@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css.css" type="text/css">
+</head>
+<body>
+    <div>
+        <form method="post">
+            <h2>ĐĂNG KÝ HỌC VIÊN</h2>
+            <label>Họ và Tên
+                <input id="marginleft20" type="text" name="name">
+            </label><br>
+            <label>Ngày sinh
+                <input id="marginleft22" type="text" name="date">
+            </label><br>
+            <label>Giới tính
+                <input id="marginleft30" type="radio" name="gender" value="male" checked>Nam
+                <input type="radio" name="gender" value="female">Nữ
+            </label><br>
+            <label>Địa chỉ
+                <textarea id="marginleft40" name="address"></textarea>
+            </label><br>
+            <label>Lớp
+                <select id="marginleft60">
+                    <option value="java">Java</option>
+                    <option value="php">PHP</option>
+                </select>
+            </label><br>
+            <label>Email
+                <input id="marginleft47" type="email" name="email">
+            </label><br>
+            <label>Số điện thoại
+                <input id="marginleft1" type="number" name="phone">
+            </label><br>
+            <label id="submit"><input type="submit" value="Đăng ký"></label>
+            <label><input type="reset" value="Nhập lại"></label>
+        </form>
+    </div>
+</body>
+</html>

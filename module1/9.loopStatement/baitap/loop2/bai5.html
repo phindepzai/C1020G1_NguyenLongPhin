@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let money = parseInt(prompt("Nhập số tiền cần vay: "));
+    let month = parseInt(prompt("Nhập số tháng cần vay"));
+    let result = 0;
+    if(money<50) {
+        alert("Ít quá không cho vay");
+    } else {
+        if(money<150) {
+            result = money * Math.pow((1 + 0.08),month);
+        } else if(money<500) {
+            result = money * Math.pow((1 + 0.07),month);
+        } else {
+            result = money * Math.pow((1 + 0.05),month);
+        }
+    }
+    alert(result);
+</script>
+</body>
+</html>

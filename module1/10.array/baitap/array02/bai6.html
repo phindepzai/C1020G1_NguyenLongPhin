@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let str = prompt("nhập vào một chuỗi: ");
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == "-"){
+            arr.push("_");
+        }else {
+            arr.push(str[i]);
+        }
+    }
+    alert(arr.join(""));
+</script>
+</body>
+</html>

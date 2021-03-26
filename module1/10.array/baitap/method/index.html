@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>bài 1:</h3>
+<button onclick="bai1();">click me</button>
+<h3>bài 2:</h3>
+<button onclick="bai2()">click me</button>
+<h3>bài 3:</h3>
+<button onclick="bai3()">click me</button>
+<script>
+    function bai1() {
+        let myColor = Array("Red", "Green", "White", "Black");
+        alert(myColor.join());
+    }
+
+    function bai2() {
+        let num = prompt("nhập vào 1 số: ").toString();
+        let arr = [num[0]];
+        for (let i = 1; i < num.length; i++) {
+            arr.push(num[i]);
+            if (num[i] % 2 == 0 && num[i + 1] % 2 == 0) {
+                arr.push("-");
+            }
+        }
+        alert(arr.join(""));
+    }
+
+    function bai3() {
+        let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        let arr = [];
+        let str = prompt("nhập vào 1 chuỗi bất kì: ");
+        for (let i = 0; i < str.length; i++) {
+            if (upperCase.indexOf(str[i]) == -1) {
+                arr.push(str[i].toUpperCase());
+            } else {
+                arr.push(str[i] = str[i].toLowerCase());
+            }
+        }
+        alert(arr.join(""));
+    }
+</script>
+</body>
+</html>

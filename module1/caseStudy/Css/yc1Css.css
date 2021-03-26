@@ -1,0 +1,50 @@
+form{
+    margin-left: 120px;
+    height: 400px;
+}
+input{
+    margin-top: 10px;
+}
+select{
+    margin-top: 10px;
+}
+#fullName{
+    margin-left: 58px;
+    margin-top: 30px;
+}
+#identityNumber{
+    margin-left: 38px;
+}
+#dob{
+    margin-left: 42px;
+}
+#email{
+    margin-left: 69px;
+}
+#rentDays{
+    margin-left: 23px;
+}
+#serviceType{
+    margin-left: 25px;
+}
+#submit{
+    width: 100px;
+    margin-left: 10px;
+}
+#reset{
+    width: 100px;
+    margin-left: 10px;
+}
+#sale{
+    margin-left: 48px;
+}
+#div{
+    background-image: url("zz.jpg");
+    margin: 20px 500px;
+}
+.last{
+    margin-top: 20px;
+    font-weight: bolder;
+    color: white;
+    background-color: #cb5bd6;
+}

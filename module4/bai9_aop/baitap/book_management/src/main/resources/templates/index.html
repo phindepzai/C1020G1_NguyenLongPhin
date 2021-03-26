@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>amount</th>
+            <th>Book</th>
+            <th>Give Back</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="book : ${list}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.amount}"></td>
+            <td>
+                <a th:href="@{/booking/{id}(id=${book.id})}" href="#" th:if="${book.amount} > 0">Booking</a>
+            </td>
+            <td>
+                <a th:href="@{/give/{id}(id=${book.id})}" href="#">
+                    Give Back
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

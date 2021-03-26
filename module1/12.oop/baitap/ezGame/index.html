@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="game"></div>
+<script src="script.js"></script>
+<script>
+    class Hero{
+        constructor(image, top, left, size) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.speed = 20;
+        }
+        getHeroElement() {
+            return '<img width="' + this.size + '"' +
+                ' height="' + this.size + '"' +
+                ' src="' + this.image + '"' +
+                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+        }
+        speedUp(speed) {
+            this.speed = speed;
+        }
+        moveRight() {
+            this.left += this.speed;
+            console.log('ok: ' + this.left);
+        }
+        moveLeft() {
+            this.left -= this.speed;
+            console.log('ok: ' + this.left);
+        }
+        moveUp() {
+            this.top -= this.speed;
+            console.log('ok: ' + this.left);
+        }
+        moveDown() {
+            this.top += this.speed;
+            console.log('ok: ' + this.left);
+        }
+    }
+
+    function start() {
+        document.onkeydown = checkKey;
+        function checkKey(e) {
+            e = e || window.event;
+            if (e.keyCode == '38') {
+                hero.moveUp();
+            }
+            else if (e.keyCode == '40') {
+                hero.moveDown();
+            }
+            else if (e.keyCode == '37') {
+                hero.moveLeft();
+            }
+            else if (e.keyCode == '39') {
+                hero.moveRight();
+            }
+
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 10);
+    }
+    let hero = new Hero('trandan.jpg', 20, 30, 200);
+    hero.speedUp(50);
+    start();
+</script>
+</body>
+</html>
