@@ -22,7 +22,7 @@ export class StudentInformationComponent implements OnInit {
     this.student = studentList.find(element => element.id === Number.parseFloat(id));
   }
 
-  // changeMark(value) {
-  //   this.student.mark = value;
-  // }
+  changeMark(value) {
+    this.student.mark = value;
+  }
 }
