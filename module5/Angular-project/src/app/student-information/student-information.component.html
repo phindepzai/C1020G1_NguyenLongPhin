@@ -2,9 +2,6 @@
 <p>name: {{student.name}}</p>
 <p>age: {{student.age}}</p>
 <p>mark: {{student.mark}}</p>
-<input [ngClass]="getClass() + ' col-4'" type="number" (change)="changeMark($event.target.value)">
-<input type="number" [(ngModel)]="student.mark">
-<p><img [src]="student.avatar" alt="zz"></p>
-welcome:<div *ngIf="isValid;then abc else def"></div>
-<ng-container #abc>abc</ng-container>
-<ng-container #def>def</ng-container>
+<!-- [<input type="number" (change)="changeMark($event.target.value)"> -->
+<p>cham diem :<input type="number" [(ngModel)]="student.mark"></p>
+<p><img [src]="student.avatar" alt="" width="300px" height="300px"></p>

@@ -5,18 +5,23 @@ import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
+import { HackernewsComponent } from './james/thuchanh/hackernews/hackernews.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentInformationComponent
+    StudentInformationComponent,
+    HackernewsComponent,
+    StudentListComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     [RouterModule.forRoot([
-      { path: 'student-information', component: StudentInformationComponent }
+      { path: '', redirectTo: 'student-list', pathMatch: 'full' },
+      { path: 'student-information/:id', component: StudentInformationComponent },
+      { path: 'student-list', component: StudentListComponent }
     ])]
   ],
   providers: [],
