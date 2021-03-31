@@ -27,7 +27,7 @@ export class StudentListComponent implements OnInit {
     studentList.splice(index, 1);
   }
 
-  get list() {
-    return studentList;
-  }
+  // get list() {
+  //   return studentList;
+  // }
 }
