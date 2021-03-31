@@ -1,7 +1,7 @@
 import { StudentInformationComponent } from './student-information/student-information.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -16,15 +16,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HackernewsComponent,
     StudentListComponent
   ],
-  imports: [
-    FormsModule,
-    BrowserModule,
-    [RouterModule.forRoot([
-      { path: '', redirectTo: 'student-list', pathMatch: 'full' },
-      { path: 'student-information/:id', component: StudentInformationComponent },
-      { path: 'student-list', component: StudentListComponent }
-    ])]
-  ],
+    imports: [
+        FormsModule,
+        BrowserModule,
+        [RouterModule.forRoot([
+            {path: '', redirectTo: 'student-list', pathMatch: 'full'},
+            {path: 'student-information/:id', component: StudentInformationComponent},
+            {path: 'student-list', component: StudentListComponent}
+        ])],
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
