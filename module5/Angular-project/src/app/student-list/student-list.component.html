@@ -14,7 +14,30 @@
             <td>{{student.name}}</td>
             <td>{{student.age}}</td>
             <td>{{student.mark}}</td>
-            <td><button class="btn btn-warning" routerLink="../student-information/{{student.id}}">Details</button></td>
+            <!-- <td><button class="btn btn-warning" routerLink="../student-information/{{student.id}}">Details</button></td> -->
+            <td><button class="btn btn-warning" (click)="modalDetail(student,content)">Details</button>
+            </td>
         </tr>
     </tbody>
 </table>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Student-Information</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>id: <input type="text" class="form-control" [value]="student.id" readonly></p>
+        <p>name: <input type="text" class="form-control" [value]="student.name" readonly></p>
+        <p>age: <input type="text" class="form-control" [value]="student.age" readonly></p>
+        <p>mark: <input type="number" class="form-control" [(ngModel)]="student.mark"></p>
+        <!-- [<input type="number" (change)="changeMark($event.target.value)"> -->
+        <!-- <p>cham diem :<input type="number" [(ngModel)]="student.mark"></p> -->
+        <!-- <p><img [src]="student.avatar" alt="" width="300px" height="300px"></p> -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        <button class="btn btn-danger" (click)="delete();modal.close('Close click')">Delete</button>
+    </div>
+</ng-template>

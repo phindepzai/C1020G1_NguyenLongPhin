@@ -1,7 +1,7 @@
 import { IStudent } from './Student';
 
 
-export const studentList: IStudent[] = [
+export let studentList: IStudent[] = [
     { id: 1, name: 'Tran Huu Han', age: 19, mark: 1, avatar: 'https://tunglocpet.com/wp-content/uploads/2020/09/cho-husky-su-that-02.jpg' },
     { id: 2, name: 'Pham Truong Phuc', age: 29, mark: 9, avatar: 'https://tunglocpet.com/wp-content/uploads/2020/09/cho-husky-su-that-thumb.jpg' },
     { id: 3, name: 'Ho Anh Dung', age: 25, mark: 2, avatar: 'https://tindongvat.com/wp-content/uploads/2019/02/cho-husky-ngoai-hinh-cai-dau.jpg' },

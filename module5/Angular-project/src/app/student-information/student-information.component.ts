@@ -18,11 +18,10 @@ export class StudentInformationComponent implements OnInit {
   }
 
   setStudent(id){
-    // tslint:disable-next-line:no-shadowed-variable
     this.student = studentList.find(element => element.id === Number.parseFloat(id));
   }
 
-  // changeMark(value) {
-  //   this.student.mark = value;
-  // }
+  changeMark(value) {
+    this.student.mark = value;
+  }
 }

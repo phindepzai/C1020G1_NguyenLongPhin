@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HackernewsComponent } from './james/thuchanh/hackernews/hackernews.component';
 import { StudentListComponent } from './student-list/student-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [

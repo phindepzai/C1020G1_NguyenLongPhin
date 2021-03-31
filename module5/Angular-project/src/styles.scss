@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.dark-modal {
+  .modal-content {
+    background-color: #292b2c;
+  }
+  color: white;
+}
+
+// .dark-modal .close {
+//   color: white;
+// }
