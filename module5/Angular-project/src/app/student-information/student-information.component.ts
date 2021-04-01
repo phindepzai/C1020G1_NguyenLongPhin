@@ -1,5 +1,6 @@
+import { IStudent } from './../model/Student';
 import { studentList } from './../model/list';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,12 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class StudentInformationComponent implements OnInit {
-  student = null;
+  @Input()
+  student: IStudent;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.setStudent(this.route.snapshot.paramMap.get('id'));
   }
 
   setStudent(id){

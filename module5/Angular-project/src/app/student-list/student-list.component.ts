@@ -13,32 +13,49 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class StudentListComponent implements OnInit {
   student: IStudent;
   index = -2;
-  contactForm = new FormGroup({
-    id: new FormControl(''),
-    name: new FormControl('', [Validators.required]),
-    age: new FormControl('', [Validators.required]),
-    mark: new FormControl('', [Validators.required]),
-    avatar: new FormControl('', [Validators.required])
-  });
+  formControlClass = 'form-control ';
+  isValidClass = 'is-valid';
+  isInvalidClass = 'is-invalid';
+  contactForm: FormGroup;
 
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.student = this.list.find(e => e.id === 1);
+    this.contactForm = this.getFormGroup();
+  }
+
+  getFormGroup() {
+    return new FormGroup({
+      id: new FormControl(''),
+      name: new FormControl('', [Validators.required, Validators.pattern('^([A-Z][a-z]+[ ])+[A-Z][a-z]+$')]),
+      age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(100)]),
+      mark: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10)]),
+      avatar: new FormControl('', [Validators.required])
+    });
   }
 
   modalDetail(student: IStudent, content) {
     this.student = student;
-    this.modalService.open(content, { windowClass: 'dark-modal', size: 'lg' });
+    this.contactForm = this.getFormGroup();
     this.contactForm.setValue(student);
-    console.log(student.id);
+    this.modalService.open(content, { windowClass: 'dark-modal', size: 'lg' });
   }
 
-  submitForm(e){
-    if (!this.contactForm.get('name').valid){
+  getClass(propertyName: string) {
+    if (this.contactForm.get(propertyName).dirty ||
+      (this.contactForm.get(propertyName).touched && this.contactForm.get(propertyName).invalid)) {
+      return this.contactForm.get(propertyName).valid ? this.isValidClass : this.isInvalidClass;
+    } else {
+      return '';
+    }
+  }
+
+  submitForm(e) {
+    if (!this.contactForm.valid) {
       e.preventDefault();
     } else {
-      console.log(this.student);
+      this.student = this.contactForm.getRawValue();
       this.saveStudent();
     }
   }
@@ -46,13 +63,12 @@ export class StudentListComponent implements OnInit {
   saveStudent() {
     if (this.index === -1) {
       this.list.push(this.student);
-    } else if (this.index === -2) {
-      this.list.splice(this.index, 0, this.student);
+    } else {
+      this.list.splice(this.index, 1, this.student);
     }
-    console.log(this.list);
   }
 
-  setIndex(id){
+  setIndex(id) {
     this.index = this.list.indexOf(this.student);
   }
 
@@ -75,5 +91,21 @@ export class StudentListComponent implements OnInit {
 
   get list() {
     return studentList;
+  }
+
+  get name() {
+    return this.contactForm.get('name');
+  }
+
+  get age() {
+    return this.contactForm.get('age');
+  }
+
+  get mark() {
+    return this.contactForm.get('mark');
+  }
+
+  get avatar() {
+    return this.contactForm.get('avatar');
   }
 }

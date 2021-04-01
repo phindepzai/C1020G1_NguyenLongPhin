@@ -30,13 +30,7 @@
         </button>
     </div>
     <div class="modal-body">
-        <p>id: <input type="text" class="form-control" [value]="student.id" readonly></p>
-        <p>name: <input type="text" class="form-control" [value]="student.name" readonly></p>
-        <p>age: <input type="text" class="form-control" [value]="student.age" readonly></p>
-        <p>mark: <input type="number" class="form-control" [value]="student.mark" readonly></p>
-        <!-- [<input type="number" (change)="changeMark($event.target.value)"> -->
-        <!-- <p>cham diem :<input type="number" [(ngModel)]="student.mark"></p> -->
-        <!-- <p><img [src]="student.avatar" alt="" width="300px" height="300px"></p> -->
+        <app-student-information [student]="student"></app-student-information>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
@@ -53,9 +47,91 @@
         </div>
         <div class="modal-body">
             <!-- {{student.name}} -->
-            <p>name: <input formControlName="name" type="text" class="form-control"></p>
-            <p>age: <input formControlName="age" type="text" class="form-control"></p>
-            <p>mark: <input formControlName="mark" type="number" class="form-control"></p>
+            <div class="form-group mb-2">
+                <label for="nameForm">Name</label>
+                <input id="nameForm" formControlName="name" type="text"
+                    [ngClass]="formControlClass + getClass('name') + ' '">
+                <div class="mt-2">
+                    <div *ngIf="name?.dirty ||name?.touched">
+                        <div *ngIf="!name.valid">
+                            <div [hidden]="!name.errors.required" class="text-danger">
+                                Name is required!
+                            </div>
+                            <div [hidden]="!name.errors.pattern" class="text-danger">
+                                Please use your real name!
+                            </div>
+                        </div>
+                        <div [hidden]="name.valid === false">
+                            <div class="text-success">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="ageForm">Age</label>
+                <input id="ageForm" formControlName="age" type="text"
+                    [ngClass]="formControlClass + getClass('age') + ' '">
+                <div class="mt-2">
+                    <div *ngIf="age.dirty ||age.touched">
+                        <div *ngIf="!age.valid">
+                            <div [hidden]="!age.errors.required" class="text-danger">
+                                Age is required!
+                            </div>
+                            <div [hidden]="age.errors.min === null || age.errors.max === null" class="text-danger">
+                                Age must more than or equal 18 and less than 100!
+                            </div>
+                        </div>
+                        <div [hidden]="age.valid === false">
+                            <div class="text-success">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="markForm">Mark</label>
+                <input id="markForm" formControlName="mark" type="text"
+                    [ngClass]="formControlClass + getClass('mark') + ' '">
+                <div class="mt-2">
+                    <div *ngIf="mark.dirty ||mark.touched">
+                        <div *ngIf="!mark.valid">
+                            <div [hidden]="!mark.errors.required" class="text-danger">
+                                Mark is required!
+                            </div>
+                            <div [hidden]="mark.errors.min === null && mark.errors.max === null" class="text-danger">
+                                Mark must more than or equal 0 and less than 10!
+                            </div>
+                        </div>
+                        <div [hidden]="mark.valid === false">
+                            <div class="text-success">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="avatarForm">Avatar Source</label>
+                <input id="avatarForm" formControlName="avatar" type="text"
+                    [ngClass]="formControlClass + getClass('avatar') + ' '">
+                <div class="mt-2">
+                    <div *ngIf="avatar.dirty ||avatar.touched">
+                        <div *ngIf="!avatar.valid">
+                            <div [hidden]="!avatar.errors.required" class="text-danger">
+                                Avatar is required!
+                            </div>
+                        </div>
+                        <div [hidden]="avatar.valid === false">
+                            <div class="text-success">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- [<input type="number" (change)="changeMark($event.target.value)"> -->
             <!-- <p>cham diem :<input type="number" [(ngModel)]="student.mark"></p> -->
             <!-- <p><img [src]="student.avatar" alt="" width="300px" height="300px"></p> -->
