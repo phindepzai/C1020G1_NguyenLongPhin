@@ -5,7 +5,7 @@
             <th>Name</th>
             <th>Age</th>
             <th>Mark</th>
-            <th>Details</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -15,14 +15,20 @@
             <td>{{student.age}}</td>
             <td>{{student.mark}}</td>
             <!-- <td><button class="btn btn-warning" routerLink="../student-information/{{student.id}}">Details</button></td> -->
-            <td><button class="btn btn-warning" (click)="modalDetail(student,details)">View</button>
-                <button class="btn btn-success" (click)="modalDetail(student,save);setIndex(student.id);">Edit</button>
+            <td><a href="#" class="text-success" title="View" [routerLink]="['/student-information/',student.id]"><i
+                        class="material-icons">&#xE417;</i></a>
+                <a href="#" class="text-primary" title="Edit"
+                    (click)="modalDetail(student.id,save);$event.preventDefault()"><i
+                        class="material-icons">&#xE254;</i></a>
+                <a href="#" class="text-danger" title="Delete"
+                    (click)="modalDetail(student.id,deleteModal);$event.preventDefault()"><i
+                        class="material-icons">&#xE872;</i></a>
             </td>
         </tr>
     </tbody>
 </table>
-<button class="btn btn-primary" (click)="modalDetail(studentN(),save)">Add New Student</button>
-<ng-template #details let-modal>
+<button class="btn btn-outline-primary" (click)="modalDetail(null,save)">Add New Student</button>
+<!-- <ng-template #details let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Student-Information</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -33,113 +39,29 @@
         <app-student-information [student]="student"></app-student-information>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-        <button class="btn btn-danger" (click)="delete();modal.close('Close click')">Delete</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template> -->
+<ng-template #deleteModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Delete</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p><strong>Are you sure you want to delete <span class="text-primary">{{student.name}}</span> profile?</strong>
+        </p>
+        <p>All information associated to this user profile will be permanently deleted.
+            <span class="text-danger">This operation can not be undone.</span>
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.close('Close click')">Cancel</button>
+        <button type="button" class="btn btn-outline-danger"
+            (click)="delete(student.id);modal.close('Ok click')">Ok</button>
     </div>
 </ng-template>
 <ng-template #save let-modal id="modal">
-    <form [formGroup]="contactForm" (submit)="modal.close('Save click');" novalidate>
-        <div class="modal-header">
-            <h4 class="modal-title">Student-Save</h4>
-            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <!-- {{student.name}} -->
-            <div class="form-group mb-2">
-                <label for="nameForm">Name</label>
-                <input id="nameForm" formControlName="name" type="text"
-                    [ngClass]="formControlClass + getClass('name') + ' '">
-                <div class="mt-2">
-                    <div *ngIf="name?.dirty ||name?.touched">
-                        <div *ngIf="!name.valid">
-                            <div [hidden]="!name.errors.required" class="text-danger">
-                                Name is required!
-                            </div>
-                            <div [hidden]="!name.errors.pattern" class="text-danger">
-                                Please use your real name!
-                            </div>
-                        </div>
-                        <div [hidden]="name.valid === false">
-                            <div class="text-success">
-                                Looks good!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mb-2">
-                <label for="ageForm">Age</label>
-                <input id="ageForm" formControlName="age" type="text"
-                    [ngClass]="formControlClass + getClass('age') + ' '">
-                <div class="mt-2">
-                    <div *ngIf="age.dirty ||age.touched">
-                        <div *ngIf="!age.valid">
-                            <div [hidden]="!age.errors.required" class="text-danger">
-                                Age is required!
-                            </div>
-                            <div [hidden]="age.errors.min === null || age.errors.max === null" class="text-danger">
-                                Age must more than or equal 18 and less than 100!
-                            </div>
-                        </div>
-                        <div [hidden]="age.valid === false">
-                            <div class="text-success">
-                                Looks good!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mb-2">
-                <label for="markForm">Mark</label>
-                <input id="markForm" formControlName="mark" type="text"
-                    [ngClass]="formControlClass + getClass('mark') + ' '">
-                <div class="mt-2">
-                    <div *ngIf="mark.dirty ||mark.touched">
-                        <div *ngIf="!mark.valid">
-                            <div [hidden]="!mark.errors.required" class="text-danger">
-                                Mark is required!
-                            </div>
-                            <div [hidden]="mark.errors.min === null && mark.errors.max === null" class="text-danger">
-                                Mark must more than or equal 0 and less than 10!
-                            </div>
-                        </div>
-                        <div [hidden]="mark.valid === false">
-                            <div class="text-success">
-                                Looks good!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mb-2">
-                <label for="avatarForm">Avatar Source</label>
-                <input id="avatarForm" formControlName="avatar" type="text"
-                    [ngClass]="formControlClass + getClass('avatar') + ' '">
-                <div class="mt-2">
-                    <div *ngIf="avatar.dirty ||avatar.touched">
-                        <div *ngIf="!avatar.valid">
-                            <div [hidden]="!avatar.errors.required" class="text-danger">
-                                Avatar is required!
-                            </div>
-                        </div>
-                        <div [hidden]="avatar.valid === false">
-                            <div class="text-success">
-                                Looks good!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- [<input type="number" (change)="changeMark($event.target.value)"> -->
-            <!-- <p>cham diem :<input type="number" [(ngModel)]="student.mark"></p> -->
-            <!-- <p><img [src]="student.avatar" alt="" width="300px" height="300px"></p> -->
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-            <button class="btn btn-danger" (click)="submitForm($event)" type="submit">Save</button>
-        </div>
-    </form>
-
+    <app-student-save (e)="setList()" [modal]="modal"></app-student-save>
 </ng-template>

@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
+import { StudentServiceService } from './../service/student-service.service';
 import { IStudent } from './../model/Student';
-import { studentList } from './../model/list';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-student-list',
@@ -10,72 +12,42 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./student-list.component.scss']
 })
 
-export class StudentListComponent implements OnInit {
+export class StudentListComponent implements OnInit, OnDestroy {
   student: IStudent;
-  index = -2;
-  formControlClass = 'form-control ';
-  isValidClass = 'is-valid';
-  isInvalidClass = 'is-invalid';
-  contactForm: FormGroup;
-
-  constructor(private modalService: NgbModal) { }
+  list: IStudent[];
+  subscription: Subscription;
+  constructor(private modalService: NgbModal, private router: Router,
+              private studentService: StudentServiceService, private httpClient: HttpClient) { }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {
-    this.student = this.list.find(e => e.id === 1);
-    this.contactForm = this.getFormGroup();
+    this.setList();
   }
 
-  getFormGroup() {
-    return new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl('', [Validators.required, Validators.pattern('^([A-Z][a-z]+[ ])+[A-Z][a-z]+$')]),
-      age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(100)]),
-      mark: new FormControl('', [Validators.required, Validators.min(0), Validators.max(10)]),
-      avatar: new FormControl('', [Validators.required])
-    });
+  setList() {
+    // this.list = undefined;
+    setTimeout(() => console.log(this.list), 200);
+    this.subscription = this.studentService.getList().subscribe(list => this.list = list);
   }
 
-  modalDetail(student: IStudent, content) {
-    this.student = student;
-    this.contactForm = this.getFormGroup();
-    this.contactForm.setValue(student);
-    this.modalService.open(content, { windowClass: 'dark-modal', size: 'lg' });
-  }
-
-  getClass(propertyName: string) {
-    if (this.contactForm.get(propertyName).dirty ||
-      (this.contactForm.get(propertyName).touched && this.contactForm.get(propertyName).invalid)) {
-      return this.contactForm.get(propertyName).valid ? this.isValidClass : this.isInvalidClass;
+  modalDetail(id: number, content) {
+    this.studentService.newForm();
+    if (id == null) {
+      this.student = this.studentN();
     } else {
-      return '';
+      this.studentService.view(id).subscribe(data => this.student = data[0]);
     }
-  }
-
-  submitForm(e) {
-    if (!this.contactForm.valid) {
-      e.preventDefault();
-    } else {
-      this.student = this.contactForm.getRawValue();
-      this.saveStudent();
-    }
-  }
-
-  saveStudent() {
-    if (this.index === -1) {
-      this.list.push(this.student);
-    } else {
-      this.list.splice(this.index, 1, this.student);
-    }
-  }
-
-  setIndex(id) {
-    this.index = this.list.indexOf(this.student);
+    setTimeout(() => {
+      this.form.setValue(this.student);
+      this.modalService.open(content, { windowClass: 'dark-modal', size: 'lg' });
+    }, 100);
   }
 
   studentN() {
-    this.index = -1;
     const studentN = {
-      id: this.list.length + 1,
+      id: null,
       name: '',
       age: 0,
       mark: 0,
@@ -84,28 +56,13 @@ export class StudentListComponent implements OnInit {
     return studentN as IStudent;
   }
 
-  delete() {
-    const index = this.list.indexOf(this.student);
-    studentList.splice(index, 1);
+  delete(id) {
+    const a = this.studentService.deleteById(id).subscribe();
+    this.setList();
+    a.unsubscribe();
   }
 
-  get list() {
-    return studentList;
-  }
-
-  get name() {
-    return this.contactForm.get('name');
-  }
-
-  get age() {
-    return this.contactForm.get('age');
-  }
-
-  get mark() {
-    return this.contactForm.get('mark');
-  }
-
-  get avatar() {
-    return this.contactForm.get('avatar');
+  get form() {
+    return this.studentService.form;
   }
 }

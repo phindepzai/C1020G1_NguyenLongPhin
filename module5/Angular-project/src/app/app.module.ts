@@ -1,12 +1,15 @@
+import { StudentServiceService } from './service/student-service.service';
 import { StudentInformationComponent } from './student-information/student-information.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HackernewsComponent } from './james/thuchanh/hackernews/hackernews.component';
 import { StudentListComponent } from './student-list/student-list.component';
+import { StudentSaveComponent } from './student-save/student-save.component';
+import { HttpClientModule } from '@angular/common/http';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -14,7 +17,8 @@ import { StudentListComponent } from './student-list/student-list.component';
     AppComponent,
     StudentInformationComponent,
     HackernewsComponent,
-    StudentListComponent
+    StudentListComponent,
+    StudentSaveComponent
   ],
     imports: [
         FormsModule,
@@ -22,11 +26,13 @@ import { StudentListComponent } from './student-list/student-list.component';
         [RouterModule.forRoot([
             {path: '', redirectTo: 'student-list', pathMatch: 'full'},
             {path: 'student-information/:id', component: StudentInformationComponent},
-            {path: 'student-list', component: StudentListComponent}
+            {path: 'student-list', component: StudentListComponent},
+            {path: '**', redirectTo: 'student-list', pathMatch: 'full'}
         ])],
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientModule
     ],
-  providers: [],
+  providers: [StudentServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
